@@ -18,6 +18,7 @@
 import CommonAside from "../components/CommonAside.vue";
 import CommonHead from "../components/CommonHead.vue";
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Home",
   components: {
     CommonAside,

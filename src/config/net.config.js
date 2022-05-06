@@ -7,7 +7,7 @@ module.exports = {
   // 问号后边代表开发环境，冒号后边代表生产环境
   baseURL:
     process.env.NODE_ENV === 'development'
-      ? 'http://localhost:9090/api'
+      ? 'http://127.0.0.1:9090/api'
       : //  '/vab-mock-server'
         'http://125.75.0.206:5682/hims-server',
   // 配后端数据的接收方式application/json;charset=UTF-8 或 application/x-www-form-urlencoded;charset=UTF-8

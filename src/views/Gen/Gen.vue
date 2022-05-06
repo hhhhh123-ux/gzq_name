@@ -112,6 +112,9 @@ export default {
     setSelectRows(val) {
       this.selectRows = val;
     },
+    allAdd(){
+      
+    }
   },
 };
 </script>

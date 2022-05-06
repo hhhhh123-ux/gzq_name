@@ -3,12 +3,12 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-export default new VueRouter({
+const router = new VueRouter({
   routes: [
     {
       path: "/",
-      name: "Home",
-      redirect: "/Home",
+      name: "Login",
+      redirect: "/Login",
     },
     {
       path: "/Home",
@@ -51,9 +51,21 @@ export default new VueRouter({
     },
   ],
 });
+//导航守卫
+//使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login') {
+    next();
+  } else {
+    let token = localStorage.getItem('Authorization');
 
-// 解决路由重复单击错误
-const originalPush = VueRouter.prototype.push;
-VueRouter.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch((err) => err);
-};
+    if (token === null || token === '') {
+      next('/login');
+    } else {
+      next();
+    }
+  }
+});
+
+
+export default router
