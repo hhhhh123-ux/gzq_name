@@ -36,8 +36,10 @@
   </el-menu>
 </template>
 <script>
-import {userInfo,loginOut} from '@/api/system/user/user';
+import {userInfo, logOut} from '@/api/system/user/user';
 import {toLoginRoute} from '@/router/index';
+import {mapActions} from 'vuex'
+
 export default {
   data() {
     return {
@@ -52,6 +54,9 @@ export default {
     this.userInfo();
   },
   methods: {
+    ...mapActions({
+      _logout: logOut,
+    }),
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
@@ -70,13 +75,20 @@ export default {
       this.$router.push('/setting/personalCenter')
     },
     async logout() {
-      await loginOut()
+      console.log("loginOut")
+
+      await this._logout().then((res) => {
+        if (res.code == '200') {
+          var storage = window.localStorage;
+          storage.clear();
+        }
+      })
       await this.$router.push(toLoginRoute(this.$route.fullPath))
     },
-    userInfo(){
+    userInfo() {
       userInfo().then((res) => {
-        console.log("res==",res.data.username)
-          this.username=res.data.username;
+        console.log("res==", res.data.username)
+        this.username = res.data.username;
       })
     },
   }

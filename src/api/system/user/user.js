@@ -5,7 +5,7 @@ export function getCodeImg() {
     return request({
       url: '/login/code',
       method: 'get',
-      timeout: 20000,
+      timeout: 100,
     })
   }
 
@@ -17,12 +17,12 @@ export function login(data) {
         data: data
     })
 }
-// 获取验证码
-export function loginOut() {
+// 登出
+export function logOut() {
     return request({
-        url: 'logout',
+        url: '/login/logout',
         method: 'get',
-
+        timeout: 200,
     })
 }
 // 获取当前用户

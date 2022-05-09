@@ -1,6 +1,7 @@
 import axios from "axios"
 import { baseURL,requestTimeout,contentType} from '@/config'
 import qs from 'qs'
+import {toLoginRoute} from "@/router";
 /**
  * @description axios初始化
  */
@@ -15,16 +16,20 @@ import qs from 'qs'
 
 
 const requestConf=(config) => {
-    let token = localStorage.getItem('Authorization');
-  // 设置请求头
-  // config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
-    if (token) config.headers['Authorization'] = token;
-  if (
-    config.data &&
-    config.headers['Content-Type'] ===
-      'application/x-www-form-urlencoded;charset=UTF-8'
-  )
-  config.data = qs.stringify(config.data)
+     console.log("config.url",config.url)
+     if(config.url!='/login/code' && config.url!='/login/login') {
+         let token = localStorage.getItem('Authorization');
+         // 设置请求头
+         // config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
+         if (token) config.headers['Authorization'] = token;
+     }
+    if (
+        config.data &&
+        config.headers['Content-Type'] ===
+        'application/x-www-form-urlencoded;charset=UTF-8'
+    )
+        config.data = qs.stringify(config.data)
+
   return config;
 }
 instance.interceptors.request.use(requestConf,(error) => {
