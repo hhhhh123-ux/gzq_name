@@ -1,46 +1,84 @@
 <template>
-    <el-menu
-        :default-active="activeIndex2"
-        class="el-menu-demo"
-        mode="horizontal"
-        @select="handleSelect"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-      >
-        <el-menu-item index="1">处理中心</el-menu-item>
-        <el-submenu index="2">
-          <template slot="title">我的工作台</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
-          <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="3" disabled>消息中心</el-menu-item>
-        <el-menu-item index="4"
-          ><a href="https://www.ele.me" target="_blank"
-            >订单管理</a
-          ></el-menu-item
-        >
-      </el-menu>
+  <el-menu
+      :default-active="activeIndex2"
+      class="el-menu-demo"
+      mode="horizontal"
+      @select="handleSelect"
+      background-color="#ffffff"
+      text-color="#ffffff"
+      active-text-color="#ffffff"
+  >
+    <el-header style="text-align: right; font-size: 60px">
+      <el-dropdown @command="handleCommand">
+        <el-avatar class="user-avatar" :src="avatar" style="margin-right: 15px"/>
+        <div class="user-name">
+          <span class="hidden-xs-only" style="margin-right: 15px">{{ username }}</span>
+          <vab-icon
+              class="vab-dropdown"
+              :class="{ 'vab-dropdown-active': active }"
+              icon="arrow-down-s-line"
+          />
+        </div>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="personalCenter">
+              <vab-icon icon="user-line"/>
+              个人中心
+            </el-dropdown-item>
+            <el-dropdown-item command="logout">
+              <vab-icon icon="logout-circle-r-line"/>
+              退出登录
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </el-header>
+  </el-menu>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        activeIndex: '1',
-        activeIndex2: '1'
-      };
+import {userInfo,loginOut} from '@/api/system/user/user';
+import {toLoginRoute} from '@/router/index';
+export default {
+  data() {
+    return {
+      active: false,
+      activeIndex: '1',
+      activeIndex2: '1',
+      avatar: 'https://i.gtimg.cn/club/item/face/img/3/15643_100.gif',
+      username: '嘻嘻',
+    };
+  },
+  created() {
+    this.userInfo();
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
     },
-    methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+    handleCommand(command) {
+      console.log("command==", command)
+      switch (command) {
+        case 'logout':
+          this.logout()
+          break
+        case 'personalCenter':
+          this.personalCenter()
+          break
       }
-    }
+    },
+    personalCenter() {
+      this.$router.push('/setting/personalCenter')
+    },
+    async logout() {
+      await loginOut()
+      await this.$router.push(toLoginRoute(this.$route.fullPath))
+    },
+    userInfo(){
+      userInfo().then((res) => {
+        console.log("res==",res.data.username)
+          this.username=res.data.username;
+      })
+    },
   }
+}
 </script>

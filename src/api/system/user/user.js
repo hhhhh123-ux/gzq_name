@@ -17,3 +17,18 @@ export function login(data) {
         data: data
     })
 }
+// 获取验证码
+export function loginOut() {
+    return request({
+        url: 'logout',
+        method: 'get',
+
+    })
+}
+// 获取当前用户
+export function userInfo() {
+    return request({
+        url: '/SysUser/userInfo',
+        method: 'get'
+    })
+}
