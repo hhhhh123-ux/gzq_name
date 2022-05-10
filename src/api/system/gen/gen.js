@@ -8,3 +8,12 @@ export function allList(data) {
       data: data,
     })
   }
+
+export function generator(data) {
+    return request({
+        url: '/gen/generator',
+        method: 'post',
+        data: data,
+    })
+}
+

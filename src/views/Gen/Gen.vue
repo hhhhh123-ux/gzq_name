@@ -122,12 +122,19 @@
         @current-change="handleCurrentChange"
         @size-change="handleSizeChange"
     />
+    <add ref="add" :all-roles="allRoles" @fetch-data="getData" />
   </div>
+
 </template>
 <script>
+import Add from "./Components/add";
 import {allList} from "@/api/system/gen/gen";
 export default {
-  components: {},
+  components: {
+    // eslint-disable-next-line vue/no-unused-components
+      Add,
+  },
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Gen",
   data() {
     return {
@@ -136,6 +143,7 @@ export default {
       isFullscreen: false,
       tableData: [],
       height:'250',
+      allRoles: [],
       data: {
         tableName: "",
         currentPage: 1,
@@ -195,12 +203,9 @@ export default {
       this.selectRows = val;
     },
     allAdd(row) {
-      // if (row.id) {
-      //   this.$refs['edit'].showEdit(row)
-      // } else {
-      //   this.$refs['edit'].showEdit()
-      // }
-    }
+      console.log("row",row);
+      this.$refs['add'].showEdit(row)
+    },
   },
 };
 </script>

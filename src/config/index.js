@@ -3,8 +3,10 @@
  *              config中的部分配置由vue.config.js读取，本质是node，故不可使用window等浏览器对象
  */
 const cli = require('./cli.config')
+const setting = require('./setting.config')
 const network = require('./net.config')
 module.exports = {
   ...cli,
   ...network,
+  ...setting,
 }
