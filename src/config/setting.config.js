@@ -3,6 +3,7 @@
  */
 module.exports = {
   // 标题分隔符
+  title: '高志强平台',
   titleSeparator: ' - ',
   // 标题是否反转
   // 如果为false: "page - title"
@@ -15,7 +16,7 @@ module.exports = {
   // 缓存路由的最大数量
   keepAliveMaxNum: 20,
   // 路由模式，可选值为 history 或 hash
-  routerMode: 'hash',
+  routerMode: 'history',
   // 不经过token校验的路由，白名单路由建议配置到与login页面同级，如果需要放行带传参的页面，请使用query传参，配置时只配置path即可
   routesWhiteList: ['/login', '/register', '/callback', '/404', '/403'],
   // 加载时显示文字
@@ -23,7 +24,7 @@ module.exports = {
   // token名称
   tokenName: 'token',
   // token在localStorage、sessionStorage、cookie存储的key的名称
-  tokenTableName: 'leantech-token',
+  tokenTableName: 'token',
   // token存储位置localStorage sessionStorage cookie
   storage: 'localStorage',
   // token失效回退到登录页时是否记录本次的路由（是否记录当前tab页）

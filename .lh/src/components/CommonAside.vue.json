@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/components/CommonAside.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1653977263008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1653977270131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,15 +14,15 @@\n         v-for=\"item in noChildren\"\r\n         :key=\"item.path\"\r\n         @click=\"clickMen(item)\"\r\n     >\r\n-      <i :class=\"item.meta.icon\"></i>\r\n+      <!-- <i :class=\"item.meta.icon\"></i> -->\r\n       <span slot=\"title\">{{ item.meta.title }}</span>\r\n     </el-menu-item>\r\n \r\n     <el-submenu :index=\"v.path\" v-for=\"v in hasChildren\" :key=\"v.path\">\r\n       <template slot=\"title\">\r\n-        <i :class=\"v.meta.icon\"></i>\r\n+        <!-- <i :class=\"v.meta.icon\"></i> -->\r\n         <span>{{ v.meta.title }}</span>\r\n       </template>\r\n       <el-menu-item-group>\r\n         <el-menu-item\r\n"
+                }
+            ],
+            "date": 1653977263008,
+            "name": "Commit-0",
+            "content": "<template>\r\n  <el-menu\r\n      default-active=\"1-4-1\"\r\n      class=\"el-menu-vertical-demo\"\r\n      @open=\"handleOpen\"\r\n      @close=\"handleClose\"\r\n      :collapse=\"isCollapse\"\r\n      background-color=\"#545c64\"\r\n      text-color=\"#fff\"\r\n  >\r\n    <h3>管理系统</h3>\r\n    <el-menu-item\r\n        :index=\"item.path\"\r\n        v-for=\"item in noChildren\"\r\n        :key=\"item.path\"\r\n        @click=\"clickMen(item)\"\r\n    >\r\n      <i :class=\"item.meta.icon\"></i>\r\n      <span slot=\"title\">{{ item.meta.title }}</span>\r\n    </el-menu-item>\r\n\r\n    <el-submenu :index=\"v.path\" v-for=\"v in hasChildren\" :key=\"v.path\">\r\n      <template slot=\"title\">\r\n        <i :class=\"v.meta.icon\"></i>\r\n        <span>{{ v.meta.title }}</span>\r\n      </template>\r\n      <el-menu-item-group>\r\n        <el-menu-item\r\n            :index=\"sub.path\"\r\n            v-for=\"sub in v.children\"\r\n            :key=\"sub.path\"\r\n            @click=\"clickMen(sub)\"\r\n        >\r\n          <!-- <i :class=\"sub.meta.icon\"></i> -->\r\n          <span>{{ sub.meta.title }}</span>\r\n        </el-menu-item>\r\n      </el-menu-item-group>\r\n    </el-submenu>\r\n  </el-menu>\r\n</template>\r\n<script>\r\nimport {getList} from '@/api/system/menu/menu';\r\n\r\nexport default {\r\n  data() {\r\n    return {\r\n      isCollapse: false,\r\n      navList: [\r\n      ],\r\n    };\r\n  },\r\n  created() {\r\n    this.getMenu();\r\n  },\r\n  computed: {\r\n    noChildren() {\r\n      return this.navList.filter((item) => !item.children);\r\n    },\r\n    hasChildren() {\r\n      return this.navList.filter((item) => item.children);\r\n    },\r\n  },\r\n  methods: {\r\n    handleOpen(key, keyPath) {\r\n      console.log(key, keyPath);\r\n    },\r\n    handleClose(key, keyPath) {\r\n      console.log(key, keyPath);\r\n    },\r\n    getMenu() {\r\n      getList().then((res) => {\r\n        this.navList = res.data;\r\n      })\r\n    },\r\n    clickMen(item) {\r\n      this.$router.push({path: item.path});\r\n    },\r\n  },\r\n};\r\n</script>\r\n\r\n<style scoped>\r\n.el-menu-vertical-demo:not(.el-menu--collapse) {\r\n  width: 200px;\r\n  min-height: 400px;\r\n}\r\n\r\n.el-menu {\r\n  height: 100%;\r\n  border: none;\r\n\r\nh3 {\r\n  color: #fff;\r\n  text-align: center;\r\n  line-height: 48px\r\n}\r\n\r\n}\r\n</style>"
+        }
+    ]
+}

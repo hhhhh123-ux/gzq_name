@@ -18,7 +18,7 @@ import {toLoginRoute} from "@/router";
 const requestConf=(config) => {
      console.log("config.url",config.url)
      if(config.url!='/login/code' && config.url!='/login/login') {
-         let token = localStorage.getItem('Authorization');
+         let token = localStorage.getItem('token');
          // 设置请求头
          // config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
          if (token) config.headers['Authorization'] = token;

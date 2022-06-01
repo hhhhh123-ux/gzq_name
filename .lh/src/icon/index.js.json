@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/icon/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1653978790961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1653978796506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,12 @@\n-const icons = require.context('.', true, /\\.svg$/)\n-icons.keys().map(icons)\n+import SvgIcon from '@/components/SvgIcon'\n+​\n+// 通过 require.context() 函数来创建自己的 context\n+const svgRequire = require.context('./svg', false, /\\.svg$/)\n+// 此时返回一个 require 的函数，可以接受一个 request 的参数，用于 require 的导入。\n+// 该函数提供了三个属性，可以通过 require.keys() 获取到所有的 svg 图标\n+// 遍历图标，把图标作为 request 传入到 require 导入函数中，完成本地 svg 图标的导入\n+svgRequire.keys().forEach(svgIcon => svgRequire(svgIcon))\n+​\n+export default app => {\n+ app.component('svg-icon', SvgIcon)\n+}\n"
+                },
+                {
+                    "date": 1653978803874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n import SvgIcon from '@/components/SvgIcon'\n-​\n-// 通过 require.context() 函数来创建自己的 context\n+​// 通过 require.context() 函数来创建自己的 context\n const svgRequire = require.context('./svg', false, /\\.svg$/)\n // 此时返回一个 require 的函数，可以接受一个 request 的参数，用于 require 的导入。\n // 该函数提供了三个属性，可以通过 require.keys() 获取到所有的 svg 图标\n // 遍历图标，把图标作为 request 传入到 require 导入函数中，完成本地 svg 图标的导入\n"
+                },
+                {
+                    "date": 1653978811614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import SvgIcon from '@/components/SvgIcon'\n+import SvgIcon from '@/components/SvgIcon'，\n ​// 通过 require.context() 函数来创建自己的 context\n const svgRequire = require.context('./svg', false, /\\.svg$/)\n // 此时返回一个 require 的函数，可以接受一个 request 的参数，用于 require 的导入。\n // 该函数提供了三个属性，可以通过 require.keys() 获取到所有的 svg 图标\n"
+                },
+                {
+                    "date": 1653978830101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n-import SvgIcon from '@/components/SvgIcon'，\n+import SvgIcon from '@/components/SvgIcon'\n+\n+\n ​// 通过 require.context() 函数来创建自己的 context\n const svgRequire = require.context('./svg', false, /\\.svg$/)\n // 此时返回一个 require 的函数，可以接受一个 request 的参数，用于 require 的导入。\n // 该函数提供了三个属性，可以通过 require.keys() 获取到所有的 svg 图标\n"
+                },
+                {
+                    "date": 1653978836196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import SvgIcon from '@/components/SvgIcon'\n \n \n-​// 通过 require.context() 函数来创建自己的 context\n+ 通过 require.context() 函数来创建自己的 context\n const svgRequire = require.context('./svg', false, /\\.svg$/)\n // 此时返回一个 require 的函数，可以接受一个 request 的参数，用于 require 的导入。\n // 该函数提供了三个属性，可以通过 require.keys() 获取到所有的 svg 图标\n // 遍历图标，把图标作为 request 传入到 require 导入函数中，完成本地 svg 图标的导入\n"
+                },
+                {
+                    "date": 1653979441827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,12 @@\n import SvgIcon from '@/components/SvgIcon'\n \n \n- 通过 require.context() 函数来创建自己的 context\n+//  通过 require.context() 函数来创建自己的 context\n const svgRequire = require.context('./svg', false, /\\.svg$/)\n // 此时返回一个 require 的函数，可以接受一个 request 的参数，用于 require 的导入。\n // 该函数提供了三个属性，可以通过 require.keys() 获取到所有的 svg 图标\n // 遍历图标，把图标作为 request 传入到 require 导入函数中，完成本地 svg 图标的导入\n svgRequire.keys().forEach(svgIcon => svgRequire(svgIcon))\n-​\n export default app => {\n  app.component('svg-icon', SvgIcon)\n }\n"
+                }
+            ],
+            "date": 1653978790961,
+            "name": "Commit-0",
+            "content": "const icons = require.context('.', true, /\\.svg$/)\nicons.keys().map(icons)\n"
+        }
+    ]
+}

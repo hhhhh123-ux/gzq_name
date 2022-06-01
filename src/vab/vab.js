@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { loadingText, messageDuration } from '@/config'
 import { Loading, Message, MessageBox, Notification } from 'element-ui'
-import { dependencies } from '../../../package.json'
+import { dependencies } from '../../package.json'
 
 /**
  * @description 全局加载层

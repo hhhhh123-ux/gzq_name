@@ -1,0 +1,270 @@
+{
+    "sourceFile": "src/main.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 63,
+            "patches": [
+                {
+                    "date": 1653974092074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1653974113971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,11 @@\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as ElIcons from '@element-plus/icons'\n Vue.use(ElementUI);\n+for (const name in ElIcons){\n+\tapp.component(name,(ElIcons as any)[name])\n+}\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653974716430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as ElIcons from '@element-plus/icons'\n Vue.use(ElementUI);\n-for (const name in ElIcons){\n-\tapp.component(name,(ElIcons as any)[name])\n-}\n+// for (const name in ElIcons){\n+// \tapp.component(name,(ElIcons as any)[name])\n+// }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653976143419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n Vue.use(ElementUI);\n // for (const name in ElIcons){\n // \tapp.component(name,(ElIcons as any)[name])\n // }\n+installIcons(app)\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653976152287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n Vue.use(ElementUI);\n // for (const name in ElIcons){\n // \tapp.component(name,(ElIcons as any)[name])\n // }\n-installIcons(app)\n+installIcons(ElementUI)\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653976160944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n Vue.use(ElementUI);\n // for (const name in ElIcons){\n // \tapp.component(name,(ElIcons as any)[name])\n // }\n-installIcons(ElementUI)\n+ElIcons(ElementUI)\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653976274398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,13 @@\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as ElIcons from '@element-plus/icons'\n+const app = createApp(app)\n+for(let iconName in ELIcons){\n+ app.component(iconName,ELIcons[iconName])\n+}\n+app.mount('#app')\n Vue.use(ElementUI);\n // for (const name in ElIcons){\n // \tapp.component(name,(ElIcons as any)[name])\n // }\n"
+                },
+                {
+                    "date": 1653976312135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n import Vue from 'vue'\n import App from './App.vue'\n import router from './router'\n+\n+import ElementPlus from 'element-plus'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as ElIcons from '@element-plus/icons'\n"
+                },
+                {
+                    "date": 1653976325932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n import Vue from 'vue'\n import App from './App.vue'\n import router from './router'\n-\n import ElementPlus from 'element-plus'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import * as ElIcons from '@element-plus/icons'\n+\n+import * as Icons from '@element-plus/icons'\n const app = createApp(app)\n for(let iconName in ELIcons){\n  app.component(iconName,ELIcons[iconName])\n }\n"
+                },
+                {
+                    "date": 1653976336321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,10 @@\n import ElementPlus from 'element-plus'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-\n import * as Icons from '@element-plus/icons'\n-const app = createApp(app)\n+const app = Vue(app)\n for(let iconName in ELIcons){\n  app.component(iconName,ELIcons[iconName])\n }\n app.mount('#app')\n"
+                },
+                {
+                    "date": 1653976368040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,8 @@\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n const app = Vue(app)\n-for(let iconName in ELIcons){\n- app.component(iconName,ELIcons[iconName])\n-}\n app.mount('#app')\n Vue.use(ElementUI);\n // for (const name in ElIcons){\n // \tapp.component(name,(ElIcons as any)[name])\n"
+                },
+                {
+                    "date": 1653976384523,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,11 @@\n Vue.use(ElementUI);\n // for (const name in ElIcons){\n // \tapp.component(name,(ElIcons as any)[name])\n // }\n+app.use(store, key)\n+app.use(router)\n+app.use(ElementPlus)\n ElIcons(ElementUI)\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653976399524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,11 @@\n Vue.use(ElementUI);\n // for (const name in ElIcons){\n // \tapp.component(name,(ElIcons as any)[name])\n // }\n-app.use(store, key)\n+app.use(store)\n app.use(router)\n app.use(ElementPlus)\n-ElIcons(ElementUI)\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653976416413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,11 @@\n // }\n app.use(store)\n app.use(router)\n app.use(ElementPlus)\n+Object.keys(Icons).forEach(key => {\n+  app.component(key, Icons[key as keyof typeof Icons])\n+})\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653976433912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,8 @@\n // }\n app.use(store)\n app.use(router)\n app.use(ElementPlus)\n-Object.keys(Icons).forEach(key => {\n-  app.component(key, Icons[key as keyof typeof Icons])\n-})\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653976461629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,5 +20,6 @@\n   el: '#app',\n   router,\n   store,\n   render: h => h(App),\n+  ElementPlus\n });\n"
+                },
+                {
+                    "date": 1653976468898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,8 @@\n Vue.use(ElementUI);\n // for (const name in ElIcons){\n // \tapp.component(name,(ElIcons as any)[name])\n // }\n-app.use(store)\n-app.use(router)\n-app.use(ElementPlus)\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653976480923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,8 @@\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n-const app = Vue(app)\n-app.mount('#app')\n Vue.use(ElementUI);\n // for (const name in ElIcons){\n // \tapp.component(name,(ElIcons as any)[name])\n // }\n@@ -17,6 +15,7 @@\n   el: '#app',\n   router,\n   store,\n   render: h => h(App),\n-  ElementPlus\n+  ElementPlus,\n+  Icons\n });\n"
+                },
+                {
+                    "date": 1653976495313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import Vue from 'vue'\n import App from './App.vue'\n import router from './router'\n-import ElementPlus from 'element-plus'\n+import ElementPlus from '@element-plus'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n"
+                },
+                {
+                    "date": 1653976500822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n import Vue from 'vue'\n import App from './App.vue'\n import router from './router'\n-import ElementPlus from '@element-plus'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n"
+                },
+                {
+                    "date": 1653976682969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,5 @@\n   el: '#app',\n   router,\n   store,\n   render: h => h(App),\n-  ElementPlus,\n-  Icons\n });\n"
+                },
+                {
+                    "date": 1653976689737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n-// for (const name in ElIcons){\n-// \tapp.component(name,(ElIcons as any)[name])\n-// }\n+for (const name in ElIcons){\n+\tapp.component(name,(ElIcons as any)[name])\n+}\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653976706294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n-for (const name in ElIcons){\n+for (const name in Icons){\n \tapp.component(name,(ElIcons as any)[name])\n }\n Vue.config.productionTip = false\n new Vue({\n"
+                },
+                {
+                    "date": 1653976711938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n for (const name in Icons){\n-\tapp.component(name,(ElIcons as any)[name])\n+\tVue.component(name,(ElIcons as any)[name])\n }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653976724713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n for (const name in Icons){\n-\tVue.component(name,(ElIcons as any)[name])\n+\tVue.component(name,(Icons as any)[name])\n }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653976743986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n for (const name in Icons){\n-\tVue.component(name,(Icons as any)[name])\n+\tVue.component(name,name)\n }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653976849123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n for (const name in Icons){\n-\tVue.component(name,name)\n+\tVue.component(name,(ElIcons as any)[name])\n }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653976856780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n for (const name in Icons){\n-\tVue.component(name,(ElIcons as any)[name])\n+\tVue.component(name,(Icons as any)[name])\n }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653976886090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n for (const name in Icons){\n-\tVue.component(name,(Icons as any)[name])\n+\tVue.component(name,(Icons as any)[name])，\n }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653976987779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n for (const name in Icons){\n-\tVue.component(name,(Icons as any)[name])，\n+\tVue.component(name,[name])\n }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653976999667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n for (const name in Icons){\n-\tVue.component(name,[name])\n+\tVue.component(name,Icons[name])\n }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653977218192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n-for (const name in Icons){\n-\tVue.component(name,Icons[name])\n-}\n+// for (const name in Icons){\n+// \tVue.component(name,Icons[name])\n+// }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653977477060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n-// for (const name in Icons){\n-// \tVue.component(name,Icons[name])\n-// }\n+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {\n+  app.component(key, component)\n+}\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653977482364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,12 @@\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n+// for (const name in Icons){\n+// \tVue.component(name,Icons[name])\n+// }\n+\n for (const [key, component] of Object.entries(ElementPlusIconsVue)) {\n   app.component(key, component)\n }\n Vue.config.productionTip = false\n"
+                },
+                {
+                    "date": 1653977490674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n \n-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {\n+for (const [key, component] of Object.entries(Icons)) {\n   app.component(key, component)\n }\n Vue.config.productionTip = false\n new Vue({\n"
+                },
+                {
+                    "date": 1653977496445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n // \tVue.component(name,Icons[name])\n // }\n \n for (const [key, component] of Object.entries(Icons)) {\n-  app.component(key, component)\n+  Vue.component(key, component)\n }\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653977525843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n for (const [key, component] of Object.entries(Icons)) {\n   Vue.component(key, component)\n }\n Vue.config.productionTip = false\n-new Vue({\n+connew Vue({\n   el: '#app',\n   router,\n   store,\n   render: h => h(App),\n"
+                },
+                {
+                    "date": 1653977531221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n for (const [key, component] of Object.entries(Icons)) {\n   Vue.component(key, component)\n }\n Vue.config.productionTip = false\n-connew Vue({\n+con=new Vue({\n   el: '#app',\n   router,\n   store,\n   render: h => h(App),\n"
+                },
+                {
+                    "date": 1653977540751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,13 +9,11 @@\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n \n-for (const [key, component] of Object.entries(Icons)) {\n-  Vue.component(key, component)\n-}\n+\n Vue.config.productionTip = false\n-con=new Vue({\n+const vue=new Vue({\n   el: '#app',\n   router,\n   store,\n   render: h => h(App),\n"
+                },
+                {
+                    "date": 1653977548777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,4 +17,7 @@\n   router,\n   store,\n   render: h => h(App),\n });\n+for (const [key, component] of Object.entries(Icons)) {\n+  e.component(key, component)\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653977554264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,6 +18,6 @@\n   store,\n   render: h => h(App),\n });\n for (const [key, component] of Object.entries(Icons)) {\n-  e.component(key, component)\n+  vue.component(key, component)\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653978192617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import * as Icons from '@element-plus/icons'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n"
+                },
+                {
+                    "date": 1653978859041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,14 @@\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n \n-\n+...\n+// 导入 svgIcon\n+import installIcons from '@/icons'\n+...\n+installIcons(app)\n+...\n Vue.config.productionTip = false\n const vue=new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653978865062,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,16 +3,17 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n+import installIcons from '@/icons'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n \n ...\n // 导入 svgIcon\n-import installIcons from '@/icons'\n+\n ...\n installIcons(app)\n ...\n Vue.config.productionTip = false\n"
+                },
+                {
+                    "date": 1653978875989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,11 @@\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n \n-...\n // 导入 svgIcon\n \n-...\n-installIcons(app)\n-...\n+installIcons(Vue)\n Vue.config.productionTip = false\n const vue=new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653979397769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import installIcons from '@/icons'\n+import installIcons from '@/icon'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n"
+                },
+                {
+                    "date": 1653979426322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import installIcons from '@/icon'\n+import '@/icon'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n"
+                },
+                {
+                    "date": 1653979659584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,17 +3,16 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icon'\n+import '@/icons'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n \n // 导入 svgIcon\n \n-installIcons(Vue)\n Vue.config.productionTip = false\n const vue=new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653979689192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icons'\n+import '@/icons/svg'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n"
+                },
+                {
+                    "date": 1653979706519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icons/svg'\n+import '@/icons'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n"
+                },
+                {
+                    "date": 1653979723931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icons'\n+import '@/icons/'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n"
+                },
+                {
+                    "date": 1653979735681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icons/'\n+import '@/icons/index'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n"
+                },
+                {
+                    "date": 1653980032832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icons/index'\n+import ‘@/icons’\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n"
+                },
+                {
+                    "date": 1653980039188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import ‘@/icons’\n+import '@/icons'\n Vue.use(ElementUI);\n // for (const name in Icons){\n // \tVue.component(name,Icons[name])\n // }\n"
+                },
+                {
+                    "date": 1653980057637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,10 @@\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import '@/icons'\n-Vue.use(ElementUI);\n-// for (const name in Icons){\n-// \tVue.component(name,Icons[name])\n-// }\n+Vue.use(ElementUI);con\n \n-// 导入 svgIcon\n-\n Vue.config.productionTip = false\n const vue=new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653980065865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,9 @@\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n import '@/icons'\n-Vue.use(ElementUI);con\n-\n+Vue.use(ElementUI);\n Vue.config.productionTip = false\n const vue=new Vue({\n   el: '#app',\n   router,\n"
+                },
+                {
+                    "date": 1653980071429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,5 @@\n   el: '#app',\n   router,\n   store,\n   render: h => h(App),\n-});\n-for (const [key, component] of Object.entries(Icons)) {\n-  vue.component(key, component)\n-}\n\\ No newline at end of file\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653981364811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,12 +3,12 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icons'\n+// import '@/icons'\n Vue.use(ElementUI);\n Vue.config.productionTip = false\n-const vue=new Vue({\n+new Vue({\n   el: '#app',\n   router,\n   store,\n   render: h => h(App),\n"
+                },
+                {
+                    "date": 1653982815535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-// import '@/icons'\n+import '@/icons'\n Vue.use(ElementUI);\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653984928250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icons'\n+import './assets/icons'\n Vue.use(ElementUI);\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653984938530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import './assets/icons'\n+import '@/assets/icons'\n Vue.use(ElementUI);\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653984946877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/assets/icons'\n+import '@/a'\n Vue.use(ElementUI);\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653984960132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/a'\n+import '@/icons/'\n Vue.use(ElementUI);\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1653984966013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icons/ic'\n+import '@/icons/ico'\n Vue.use(ElementUI);\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                }
+            ],
+            "date": 1653974092074,
+            "name": "Commit-0",
+            "content": "import Vue from 'vue'\nimport App from './App.vue'\nimport router from './router'\nimport store from '@/store'\nimport ElementUI from 'element-ui'\nimport 'element-ui/lib/theme-chalk/index.css';\nimport * as ElIcons from '@element-plus/icons'\nVue.use(ElementUI);\nVue.config.productionTip = false\nnew Vue({\n  el: '#app',\n  router,\n  store,\n  render: h => h(App),\n});\n"
+        }
+    ]
+}

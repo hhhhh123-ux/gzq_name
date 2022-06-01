@@ -10,23 +10,23 @@
   >
     <el-header style="text-align: right; font-size: 60px">
       <el-dropdown @command="handleCommand">
-        <el-avatar class="user-avatar" :src="avatar" style="margin-right: 15px"/>
         <div class="user-name">
-          <span class="hidden-xs-only" style="margin-right: 15px">{{ username }}</span>
-          <vab-icon
+          <el-avatar class="user-avatar" :src="avatar" style="margin-right:15px"/>
+          <span class="hidden-xs-only" style="margin-right:15px ">{{username}}</span>
+          <svg-icon
               class="vab-dropdown"
               :class="{ 'vab-dropdown-active': active }"
-              icon="arrow-down-s-line"
+              icon-class="arrow-down-s-line"
           />
         </div>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item command="personalCenter">
-              <vab-icon icon="user-line"/>
+              <svg-icon  icon-class='user'/>
               个人中心
             </el-dropdown-item>
             <el-dropdown-item command="logout">
-              <vab-icon icon="logout-circle-r-line"/>
+              <svg-icon icon-class='logout'/>
               退出登录
             </el-dropdown-item>
           </el-dropdown-menu>
@@ -36,8 +36,8 @@
   </el-menu>
 </template>
 <script>
-import {userInfo, logOut} from '@/api/system/user/user';
-import {toLoginRoute} from '@/router/index';
+import {getUserInfo, logOut} from '@/api/system/user/user';
+import toLoginRoute from '@/router/index';
 import {mapActions} from 'vuex'
 
 export default {
@@ -61,7 +61,6 @@ export default {
       console.log(key, keyPath);
     },
     handleCommand(command) {
-      console.log("command==", command)
       switch (command) {
         case 'logout':
           this.logout()
@@ -86,7 +85,7 @@ export default {
       await this.$router.push(toLoginRoute(this.$route.fullPath))
     },
     userInfo() {
-      userInfo().then((res) => {
+      getUserInfo().then((res) => {
         console.log("res==", res.data.username)
         this.username = res.data.username;
       })

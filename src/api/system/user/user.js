@@ -3,11 +3,10 @@ import request from '@/axios/request';
 // 获取验证码
 export function getCodeImg() {
     return request({
-      url: '/login/code',
-      method: 'get',
-      timeout: 100,
+        url: '/login/code',
+        method: 'get',
     })
-  }
+}
 
 // 获取验证码
 export function login(data) {
@@ -17,6 +16,7 @@ export function login(data) {
         data: data
     })
 }
+
 // 登出
 export function logOut() {
     return request({
@@ -25,8 +25,9 @@ export function logOut() {
         timeout: 200,
     })
 }
+
 // 获取当前用户
-export function userInfo() {
+export function getUserInfo() {
     return request({
         url: '/SysUser/userInfo',
         method: 'get'

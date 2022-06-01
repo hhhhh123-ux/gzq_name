@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/views/Gen/Swagger.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1653963432671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1653963459321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,24 @@\n <template>\r\n-     <div class=\"iframe-container\">\r\n+  <div class=\"iframe-container\">\r\n     <iframe frameborder=\"0\" :src=\"url\" />\r\n   </div>\r\n </template>\r\n <script>\r\n-  import { baseURL } from '@/config'\r\n-  export default {\r\n-    name: 'swagger',\r\n-    data() {\r\n-      return {\r\n-        url: baseURL + '/swagger-ui.html#/',\r\n-      }\r\n-    },\r\n-  }\r\n+import { baseURL } from \"@/config\";\r\n+export default {\r\n+  name: \"swagger\",\r\n+  data() {\r\n+    return {\r\n+      url: baseURL + \"/swagger-ui.html#/\",\r\n+    };\r\n+  },\r\n+};\r\n </script>\r\n <style lang=\"scss\" scoped>\r\n-  .iframe-container {\r\n-    iframe {\r\n-      width: 100%;\r\n-      height: 100vh;\r\n-    }\r\n+.iframe-container {\r\n+  iframe {\r\n+    width: 100%;\r\n+    height: 100vh;\r\n   }\r\n+}\r\n </style>\r\n"
+                }
+            ],
+            "date": 1653963432671,
+            "name": "Commit-0",
+            "content": "<template>\r\n     <div class=\"iframe-container\">\r\n    <iframe frameborder=\"0\" :src=\"url\" />\r\n  </div>\r\n</template>\r\n<script>\r\n  import { baseURL } from '@/config'\r\n  export default {\r\n    name: 'swagger',\r\n    data() {\r\n      return {\r\n        url: baseURL + '/swagger-ui.html#/',\r\n      }\r\n    },\r\n  }\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  .iframe-container {\r\n    iframe {\r\n      width: 100%;\r\n      height: 100vh;\r\n    }\r\n  }\r\n</style>\r\n"
+        }
+    ]
+}

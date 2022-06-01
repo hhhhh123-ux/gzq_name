@@ -15,14 +15,23 @@
       :key="item.path"
       @click="clickMen(item)"
     >
-      <i :class="'el-icon-' + item.icon"></i>
-      <span slot="title">{{ item.label }}</span>
+      <template slot="title">
+        <svg-icon
+          slot="prefix"
+          v-if="item.meta && item.meta.icon"
+          :icon-class="item.meta.icon"
+        ></svg-icon>
+        <span slot="title">{{ item.meta.title }}</span> 
+      </template>
     </el-menu-item>
 
     <el-submenu :index="v.path" v-for="v in hasChildren" :key="v.path">
       <template slot="title">
-        <i :class="'el-icon-' + v.icon"></i>
-        <span>{{ v.label }}</span>
+         <svg-icon
+          v-if="v.meta && v.meta.icon"
+          :icon-class="v.meta.icon"
+        ></svg-icon>
+        <span>{{ v.meta.title }}</span>
       </template>
       <el-menu-item-group>
         <el-menu-item
@@ -31,81 +40,29 @@
           :key="sub.path"
           @click="clickMen(sub)"
         >
-          <i :class="'el-icon-' + sub.icon"></i>
-          <span>{{ sub.label }}</span>
+         <svg-icon
+          v-if="sub.meta && sub.meta.icon"
+          :icon-class="sub.meta.icon"
+        ></svg-icon>
+          <span>{{ sub.meta.title }}</span>
         </el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>
 </template>
 <script>
+import { getList } from "@/api/system/menu/menu";
+
 export default {
   data() {
     return {
       isCollapse: false,
-      navList: [
-        {
-          path: "/",
-          name: "home",
-          label: "首页",
-          icon: "s-home",
-          url: "Home/Home",
-        },
-        {
-          path: "/mqll",
-          name: "mall",
-          label: "商品管理",
-          icon: "video-play",
-          url: "MallManage/manage",
-        },
-        {
-          path: "/system",
-          name: "system",
-          label: "系统管理",
-          icon: "video-play",
-          children: [
-            {
-              path: "/user",
-              name: "user",
-              label: "用户管理",
-              icon: "account-box-line",
-              url: "user/user",
-            },
-            {
-              path: "/role",
-              name: "role",
-              label: "角色管理",
-              icon: "account-circle-line",
-              url: "/role/role",
-            },
-            {
-              path: "/gen",
-              name: "gen",
-              label: "生成管理",
-              icon: "account-circle-line",
-              url: "/gen/gen",
-            },
-            {
-              path: "/swagger",
-              name: "swagger",
-              label: "系统接口",
-              icon: "account-circle-line",
-              url: "/gen/gen",
-            },
-            {
-              path: "/druid",
-              name: "druid",
-              label: "数据监控",
-              icon: "account-circle-line",
-              url: "/druid",
-            },
-          ],
-        },
-
-      ],
+      navList: [],
     };
   },
-
+  created() {
+    this.getMenu();
+  },
   computed: {
     noChildren() {
       return this.navList.filter((item) => !item.children);
@@ -121,6 +78,11 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
+    getMenu() {
+      getList().then((res) => {
+        this.navList = res.data;
+      });
+    },
     clickMen(item) {
       this.$router.push({ path: item.path });
     },
@@ -133,14 +95,15 @@ export default {
   width: 200px;
   min-height: 400px;
 }
-.el-menu {
-     height: 100%;
-      border: none;
-      h3 {
-        color: #fff;
-        text-align: center;
-        line-height: 48px
-      }
 
+.el-menu {
+  height: 100%;
+  border: none;
+
+  h3 {
+    color: #fff;
+    text-align: center;
+    line-height: 48px;
+  }
 }
 </style>

@@ -1,0 +1,162 @@
+{
+    "sourceFile": "src/icons/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 36,
+            "patches": [
+                {
+                    "date": 1653979768768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1653979775402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import Vue from ‘vue’\n+import Vue from 'vue’\n import SvgIcon from ‘@/components/SvgIcon’ // svg组件\n // 注册为全局组件\n Vue.component(‘svg-icon’, SvgIcon)\n const req = require.context(’./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/)\n"
+                },
+                {
+                    "date": 1653979780550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-import Vue from 'vue’\n-import SvgIcon from ‘@/components/SvgIcon’ // svg组件\n+import Vue from 'vue'\n+import SvgIcon from '@/components/SvgIcon’ // svg组件\n // 注册为全局组件\n Vue.component(‘svg-icon’, SvgIcon)\n const req = require.context(’./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n"
+                },
+                {
+                    "date": 1653979791651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n-import SvgIcon from '@/components/SvgIcon’ // svg组件\n+import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n-Vue.component(‘svg-icon’, SvgIcon)\n+Vue.component(‘svg-icon', SvgIcon)\n const req = require.context(’./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979798576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n-Vue.component(‘svg-icon', SvgIcon)\n-const req = require.context(’./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/)\n+Vue.component('svg-icon', SvgIcon)\n+const req = require.context(''./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979823940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req = require.context(''./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/)\n+const req = require.context('./svg', false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/),\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979843353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req = require.context('./svg', false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/),\n+const req = require.context('./svg', false, /.svgKaTeX parse error: Can't use function '\\. in math mode at position 264: …/svg', false, /\\̲.̲svg/),\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979883510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req = require.context('./svg', false, /.svgKaTeX parse error: Can't use function '\\. in math mode at position 264: …/svg', false, /\\̲.̲svg/),\n+const req = \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979891386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req = \n+const req =require.context(’./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979897311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context(’./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n+const req =require.context(''./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979904803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context(''./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n+const req =require.context(''., false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979911942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context(''., false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n+const req =require.context('/svg', false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979921655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context('/svg', false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n+const req =require.context('/svg', false, /.svgKaTeX parse error: Cant use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979935029,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context('/svg', false, /.svgKaTeX parse error: Cant use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n+const req =require.context('/svg', false, '/.svgKaTeX parse error: Cant use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979940873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context('/svg', false, '/.svgKaTeX parse error: Cant use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/) \n+const req =require.context('/svg', false, '/.svgKaTeX parse error: Cant use function '\\.' in math mode at position 264: …/svg', false, '/\\̲.̲svg/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979953330,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context('/svg', false, '/.svgKaTeX parse error: Cant use function '\\.' in math mode at position 264: …/svg', false, '/\\̲.̲svg/) \n+const req =require.context('/svg', false, '', false, '/\\̲.̲svg/') \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979987021,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context('/svg', false, '', false, '/\\̲.̲svg/') \n+const req =require.context('/svg', false, '', false,/\\̲.̲svg/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653979996574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context('/svg', false, '', false,/\\̲.̲svg/) \n+const req =require.context('/svg', false, '', false,/\\.svg$/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653983373915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import Vue from 'vue'\n-import SvgIcon from '@/components/SvgIcon' // svg组件\n+import SvgIcon from '@' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n const req =require.context('/svg', false, '', false,/\\.svg$/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n"
+                },
+                {
+                    "date": 1653983379512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import Vue from 'vue'\n-import SvgIcon from '@' // svg组件\n+import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n const req =require.context('/svg', false, '', false,/\\.svg$/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n"
+                },
+                {
+                    "date": 1653983386073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import Vue from 'vue'\n-import SvgIcon from '@/components/SvgIcon' // svg组件\n+import SvgIcon from '@/components/SvgIcon/in' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n const req =require.context('/svg', false, '', false,/\\.svg$/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n"
+                },
+                {
+                    "date": 1653983392901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import Vue from 'vue'\n-import SvgIcon from '@/components/SvgIcon/in' // svg组件\n+import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n const req =require.context('/svg', false, '', false,/\\.svg$/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n"
+                },
+                {
+                    "date": 1653983576136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon' // svg组件\n // 注册为全局组件\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context('/svg', false, '', false,/\\.svg$/) \n+const req =require.context('。/svg', false, '123456', false,/\\.svg$/) \n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n"
+                },
+                {
+                    "date": 1653984878697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n import Vue from 'vue'\n-import SvgIcon from '@/components/SvgIcon' // svg组件\n-// 注册为全局组件\n+import SvgIcon from '@/components/SvgIcon'// svg组件\n+ \n+// register globally\n Vue.component('svg-icon', SvgIcon)\n-const req =require.context('。/svg', false, '123456', false,/\\.svg$/) \n+ \n+const req = require.context('./svg', false, /\\.svg$/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n-requireAll(req)\n+requireAll(req)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653984883835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon'// svg组件\n- \n // register globally\n Vue.component('svg-icon', SvgIcon)\n- \n const req = require.context('./svg', false, /\\.svg$/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653987213190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import Vue from 'vue'\n-import SvgIcon from '@/components/SvgIcon'// svg组件\n+import SvgIcon from '@/components/SvgIcon/'// svg组件\n // register globally\n Vue.component('svg-icon', SvgIcon)\n const req = require.context('./svg', false, /\\.svg$/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n"
+                },
+                {
+                    "date": 1653987222133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import Vue from 'vue'\n-import SvgIcon from '@/components/SvgIcon/'// svg组件\n+import SvgIcon from '@/components/SvgIcon'// svg组件\n // register globally\n Vue.component('svg-icon', SvgIcon)\n const req = require.context('./svg', false, /\\.svg$/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n"
+                },
+                {
+                    "date": 1653987538273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon'// svg组件\n // register globally\n-Vue.component('svg-icon', SvgIcon)\n+Vue.component('SvgIcon', SvgIcon)\n const req = require.context('./svg', false, /\\.svg$/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653987701967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon'// svg组件\n // register globally\n-Vue.component('SvgIcon', SvgIcon)\n+Vue.component('svg-icon', SvgIcon)\n const req = require.context('./svg', false, /\\.svg$/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653991447135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon'// svg组件\n // register globally\n+\n Vue.component('svg-icon', SvgIcon)\n const req = require.context('./svg', false, /\\.svg$/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653991463639,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon'// svg组件\n+import * as Icons from \"@element-plus/icons-vue\"; //导入所有element icon图标\n // register globally\n \n Vue.component('svg-icon', SvgIcon)\n const req = require.context('./svg', false, /\\.svg$/)\n"
+                },
+                {
+                    "date": 1653991516081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,15 @@\n import Vue from 'vue'\n import SvgIcon from '@/components/SvgIcon'// svg组件\n import * as Icons from \"@element-plus/icons-vue\"; //导入所有element icon图标\n // register globally\n-\n+Object.keys(Icons).forEach((key) => {\n+\tcreateApp(App).component(key, Icons[key]); // JS中用这行\n+    // app.component(key, Icons[key as keyof typeof Icons]);// TS中用这行\n+});\n+————————————————\n+版权声明：本文为CSDN博主「Luckyflowers」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n+原文链接：https://blog.csdn.net/m0_68683769/article/details/124131266\n Vue.component('svg-icon', SvgIcon)\n const req = require.context('./svg', false, /\\.svg$/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653991531990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,14 +2,11 @@\n import SvgIcon from '@/components/SvgIcon'// svg组件\n import * as Icons from \"@element-plus/icons-vue\"; //导入所有element icon图标\n // register globally\n Object.keys(Icons).forEach((key) => {\n-\tcreateApp(App).component(key, Icons[key]); // JS中用这行\n+\tVue.component(key, Icons[key]); // JS中用这行\n     // app.component(key, Icons[key as keyof typeof Icons]);// TS中用这行\n });\n-————————————————\n-版权声明：本文为CSDN博主「Luckyflowers」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n-原文链接：https://blog.csdn.net/m0_68683769/article/details/124131266\n Vue.component('svg-icon', SvgIcon)\n const req = require.context('./svg', false, /\\.svg$/)\n const requireAll = requireContext => requireContext.keys().map(requireContext)\n requireAll(req)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653991552285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import SvgIcon from '@/components/SvgIcon'// svg组件\n import * as Icons from \"@element-plus/icons-vue\"; //导入所有element icon图标\n // register globally\n Object.keys(Icons).forEach((key) => {\n-\tVue.component(key, Icons[key]); // JS中用这行\n+\tVue.component('svg-icon', Icons[key]); // JS中用这行\n     // app.component(key, Icons[key as keyof typeof Icons]);// TS中用这行\n });\n Vue.component('svg-icon', SvgIcon)\n const req = require.context('./svg', false, /\\.svg$/)\n"
+                },
+                {
+                    "date": 1653991648359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,8 @@\n Object.keys(Icons).forEach((key) => {\n \tVue.component('svg-icon', Icons[key]); // JS中用这行\n     // app.component(key, Icons[key as keyof typeof Icons]);// TS中用这行\n });\n-Vue.component('svg-icon', SvgIcon)\n-const req = require.context('./svg', false, /\\.svg$/)\n-const requireAll = requireContext => requireContext.keys().map(requireContext)\n-requireAll(req)\n\\ No newline at end of file\n+// Vue.component('svg-icon', SvgIcon)\n+// const req = require.context('./svg', false, /\\.svg$/)\n+// const requireAll = requireContext => requireContext.keys().map(requireContext)\n+// requireAll(req)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653991719394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import Vue from 'vue'\n-import SvgIcon from '@/components/SvgIcon'// svg组件\n+// import SvgIcon from '@/components/SvgIcon'// svg组件\n import * as Icons from \"@element-plus/icons-vue\"; //导入所有element icon图标\n // register globally\n Object.keys(Icons).forEach((key) => {\n \tVue.component('svg-icon', Icons[key]); // JS中用这行\n     // app.component(key, Icons[key as keyof typeof Icons]);// TS中用这行\n });\n-// Vue.component('svg-icon', SvgIcon)\n-// const req = require.context('./svg', false, /\\.svg$/)\n-// const requireAll = requireContext => requireContext.keys().map(requireContext)\n\\ No newline at end of file\n-// requireAll(req)\n+Vue.component('svg-icon', SvgIcon)\n+const req = require.context('./svg', false, /\\.svg$/)\n+const requireAll = requireContext => requireContext.keys().map(requireContext)\n+requireAll(req)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1653991724761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import Vue from 'vue'\n-// import SvgIcon from '@/components/SvgIcon'// svg组件\n+import SvgIcon from '@/components/SvgIcon'// svg组件\n import * as Icons from \"@element-plus/icons-vue\"; //导入所有element icon图标\n // register globally\n Object.keys(Icons).forEach((key) => {\n \tVue.component('svg-icon', Icons[key]); // JS中用这行\n"
+                }
+            ],
+            "date": 1653979768768,
+            "name": "Commit-0",
+            "content": "import Vue from ‘vue’\nimport SvgIcon from ‘@/components/SvgIcon’ // svg组件\n// 注册为全局组件\nVue.component(‘svg-icon’, SvgIcon)\nconst req = require.context(’./svg’, false, /.svgKaTeX parse error: Can't use function '\\.' in math mode at position 264: …/svg', false, /\\̲.̲svg/)\nconst requireAll = requireContext => requireContext.keys().map(requireContext)\nrequireAll(req)\n"
+        }
+    ]
+}

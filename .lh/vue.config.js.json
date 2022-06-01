@@ -1,0 +1,42 @@
+{
+    "sourceFile": "vue.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1653979300934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1653979311743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n const path = require('path')\n const {defineConfig} = require('@vue/cli-service')\n const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')\n const path = require('path')\n-const resolve = (dir) => {\n+function resolve(dir) {\n     return path.join(__dirname, dir)\n-}\n+   }\n module.exports = defineConfig({\n         transpileDependencies: true,\n         lintOnSave: false,\n         configureWebpack: {\n"
+                },
+                {
+                    "date": 1653979341477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n \n-const path = require('path')\n const {defineConfig} = require('@vue/cli-service')\n const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')\n const path = require('path')\n function resolve(dir) {\n@@ -19,9 +18,30 @@\n                 }\n             }\n \n         },\n-\n+        chainWebpack(config) {\n+            // 设置 svg-sprite-loader\n+            config.module\n+              .rule('svg')\n+              .exclude.add(resolve('src/icons'))\n+              .end()\n+            config.module\n+              .rule('icons')\n+              .test(/\\.svg$/)\n+              .include.add(resolve('src/icons'))\n+              .end()\n+              .use('svg-sprite-loader')\n+              .loader('svg-sprite-loader')\n+              .options({\n+                symbolId: 'icon-[name]'\n+              })\n+              .end()\n+          }\n+         \n+         ————————————————\n+         版权声明：本文为CSDN博主「杰哥快要啊」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n+         原文链接：https://blog.csdn.net/CJCJCJ153/article/details/121599075\n     }\n )\n \n \n"
+                },
+                {
+                    "date": 1653979348967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,47 +1,33 @@\n-\n-const {defineConfig} = require('@vue/cli-service')\n-const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')\n-const path = require('path')\n+const { defineConfig } = require(\"@vue/cli-service\");\n+const NodePolyfillPlugin = require(\"node-polyfill-webpack-plugin\");\n+const path = require(\"path\");\n function resolve(dir) {\n-    return path.join(__dirname, dir)\n-   }\n+  return path.join(__dirname, dir);\n+}\n module.exports = defineConfig({\n-        transpileDependencies: true,\n-        lintOnSave: false,\n-        configureWebpack: {\n-            plugins: [\n-                new NodePolyfillPlugin()\n-            ],\n-            resolve: {\n-                fallback: {\n-                    path: require.resolve(\"path-browserify\")\n-                }\n-            }\n-\n-        },\n-        chainWebpack(config) {\n-            // 设置 svg-sprite-loader\n-            config.module\n-              .rule('svg')\n-              .exclude.add(resolve('src/icons'))\n-              .end()\n-            config.module\n-              .rule('icons')\n-              .test(/\\.svg$/)\n-              .include.add(resolve('src/icons'))\n-              .end()\n-              .use('svg-sprite-loader')\n-              .loader('svg-sprite-loader')\n-              .options({\n-                symbolId: 'icon-[name]'\n-              })\n-              .end()\n-          }\n-         \n-         ————————————————\n-         版权声明：本文为CSDN博主「杰哥快要啊」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n-         原文链接：https://blog.csdn.net/CJCJCJ153/article/details/121599075\n-    }\n-)\n-\n-\n+  transpileDependencies: true,\n+  lintOnSave: false,\n+  configureWebpack: {\n+    plugins: [new NodePolyfillPlugin()],\n+    resolve: {\n+      fallback: {\n+        path: require.resolve(\"path-browserify\"),\n+      },\n+    },\n+  },\n+  chainWebpack(config) {\n+    // 设置 svg-sprite-loader\n+    config.module.rule(\"svg\").exclude.add(resolve(\"src/icons\")).end();\n+    config.module\n+      .rule(\"icons\")\n+      .test(/\\.svg$/)\n+      .include.add(resolve(\"src/icons\"))\n+      .end()\n+      .use(\"svg-sprite-loader\")\n+      .loader(\"svg-sprite-loader\")\n+      .options({\n+        symbolId: \"icon-[name]\",\n+      })\n+      .end();\n+  },\n+});\n"
+                },
+                {
+                    "date": 1653986861067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   chainWebpack(config) {\n     // 设置 svg-sprite-loader\n     config.module.rule(\"svg\").exclude.add(resolve(\"src/icons\")).end();\n     config.module\n-      .rule(\"icons\")\n+      .rule(\"vabIcon\")\n       .test(/\\.svg$/)\n       .include.add(resolve(\"src/icons\"))\n       .end()\n       .use(\"svg-sprite-loader\")\n"
+                },
+                {
+                    "date": 1653986925238,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   chainWebpack(config) {\n     // 设置 svg-sprite-loader\n     config.module.rule(\"svg\").exclude.add(resolve(\"src/icons\")).end();\n     config.module\n-      .rule(\"vabIcon\")\n+      .rule(\"icons\")\n       .test(/\\.svg$/)\n       .include.add(resolve(\"src/icons\"))\n       .end()\n       .use(\"svg-sprite-loader\")\n"
+                },
+                {
+                    "date": 1653987294700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   chainWebpack(config) {\n     // 设置 svg-sprite-loader\n     config.module.rule(\"svg\").exclude.add(resolve(\"src/icons\")).end();\n     config.module\n-      .rule(\"icons\")\n+      .rule(\"icon\")\n       .test(/\\.svg$/)\n       .include.add(resolve(\"src/icons\"))\n       .end()\n       .use(\"svg-sprite-loader\")\n"
+                }
+            ],
+            "date": 1653979300934,
+            "name": "Commit-0",
+            "content": "\nconst path = require('path')\nconst {defineConfig} = require('@vue/cli-service')\nconst NodePolyfillPlugin = require('node-polyfill-webpack-plugin')\nconst path = require('path')\nconst resolve = (dir) => {\n    return path.join(__dirname, dir)\n}\nmodule.exports = defineConfig({\n        transpileDependencies: true,\n        lintOnSave: false,\n        configureWebpack: {\n            plugins: [\n                new NodePolyfillPlugin()\n            ],\n            resolve: {\n                fallback: {\n                    path: require.resolve(\"path-browserify\")\n                }\n            }\n\n        },\n\n    }\n)\n\n\n"
+        }
+    ]
+}

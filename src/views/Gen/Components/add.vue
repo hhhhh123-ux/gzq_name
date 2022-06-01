@@ -51,6 +51,7 @@
 <script>
 import {generator} from "@/api/system/gen/gen";
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'add',
   data() {
     return {
