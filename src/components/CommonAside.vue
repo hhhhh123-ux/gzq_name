@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    default-active="1-4-1"
+    default-active="String(activeNav)"
     class="el-menu-vertical-demo"
     @open="handleOpen"
     @close="handleClose"
@@ -8,7 +8,7 @@
     background-color="#545c64"
     text-color="#fff"
   >
-    <h3>管理系统</h3>
+   
     <el-menu-item
       :index="item.path"
       v-for="item in noChildren"
@@ -21,13 +21,13 @@
           v-if="item.meta && item.meta.icon"
           :icon-class="item.meta.icon"
         ></svg-icon>
-        <span slot="title">{{ item.meta.title }}</span> 
+        <span slot="title">{{ item.meta.title }}</span>
       </template>
     </el-menu-item>
 
     <el-submenu :index="v.path" v-for="v in hasChildren" :key="v.path">
       <template slot="title">
-         <svg-icon
+        <svg-icon
           v-if="v.meta && v.meta.icon"
           :icon-class="v.meta.icon"
         ></svg-icon>
@@ -40,10 +40,10 @@
           :key="sub.path"
           @click="clickMen(sub)"
         >
-         <svg-icon
-          v-if="sub.meta && sub.meta.icon"
-          :icon-class="sub.meta.icon"
-        ></svg-icon>
+          <svg-icon
+            v-if="sub.meta && sub.meta.icon"
+            :icon-class="sub.meta.icon"
+          ></svg-icon>
           <span>{{ sub.meta.title }}</span>
         </el-menu-item>
       </el-menu-item-group>
@@ -57,6 +57,8 @@ export default {
   data() {
     return {
       isCollapse: false,
+      activeTab: "1", //默认显示的tab
+      tabIndex: 1, //tab目前显示数
       navList: [],
     };
   },
@@ -64,16 +66,27 @@ export default {
     this.getMenu();
   },
   computed: {
+    setHeight() {
+      return document.documentElement.clientHeight - 65;
+    },
     noChildren() {
       return this.navList.filter((item) => !item.children);
     },
     hasChildren() {
       return this.navList.filter((item) => item.children);
     },
+    activeNav() {
+      //当前激活的导航
+      return this.$route.path;
+    },
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+    handleOpen() {
+      if (this.isCollapse == false) {
+        this.isCollapse = true;
+      } else {
+        this.isCollapse = false;
+      }
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);

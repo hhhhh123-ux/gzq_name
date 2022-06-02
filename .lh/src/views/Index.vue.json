@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/views/Index.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1654140891922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654140897341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n-<\n\\ No newline at end of file\n+<template>\r\n+    \r\n+</template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654140925278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n <template>\r\n-    <div\r\n+    <div></div>\r\n </template>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1654140891922,
+            "name": "Commit-0",
+            "content": "<"
+        }
+    ]
+}

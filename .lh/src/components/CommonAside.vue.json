@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1653977263008,
@@ -12,6 +12,26 @@
                 {
                     "date": 1653977270131,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,15 +14,15 @@\n         v-for=\"item in noChildren\"\r\n         :key=\"item.path\"\r\n         @click=\"clickMen(item)\"\r\n     >\r\n-      <i :class=\"item.meta.icon\"></i>\r\n+      <!-- <i :class=\"item.meta.icon\"></i> -->\r\n       <span slot=\"title\">{{ item.meta.title }}</span>\r\n     </el-menu-item>\r\n \r\n     <el-submenu :index=\"v.path\" v-for=\"v in hasChildren\" :key=\"v.path\">\r\n       <template slot=\"title\">\r\n-        <i :class=\"v.meta.icon\"></i>\r\n+        <!-- <i :class=\"v.meta.icon\"></i> -->\r\n         <span>{{ v.meta.title }}</span>\r\n       </template>\r\n       <el-menu-item-group>\r\n         <el-menu-item\r\n"
+                },
+                {
+                    "date": 1654132517230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,53 +1,65 @@\n <template>\r\n   <el-menu\r\n-      default-active=\"1-4-1\"\r\n-      class=\"el-menu-vertical-demo\"\r\n-      @open=\"handleOpen\"\r\n-      @close=\"handleClose\"\r\n-      :collapse=\"isCollapse\"\r\n-      background-color=\"#545c64\"\r\n-      text-color=\"#fff\"\r\n+    default-active=\"1-4-1\"\r\n+    class=\"el-menu-vertical-demo\"\r\n+    @open=\"handleOpen\"\r\n+    @close=\"handleClose\"\r\n+    :collapse=\"isCollapse\"\r\n+    background-color=\"#545c64\"\r\n+    text-color=\"#fff\"\r\n   >\r\n     <h3>管理系统</h3>\r\n     <el-menu-item\r\n-        :index=\"item.path\"\r\n-        v-for=\"item in noChildren\"\r\n-        :key=\"item.path\"\r\n-        @click=\"clickMen(item)\"\r\n+       default-active=\"String(activeNav)\r\n+      :index=\"item.path\"\r\n+      v-for=\"item in noChildren\"\r\n+      :key=\"item.path\"\r\n+      @click=\"clickMen(item)\"\r\n     >\r\n-      <!-- <i :class=\"item.meta.icon\"></i> -->\r\n-      <span slot=\"title\">{{ item.meta.title }}</span>\r\n+      <template slot=\"title\">\r\n+        <svg-icon\r\n+          slot=\"prefix\"\r\n+          v-if=\"item.meta && item.meta.icon\"\r\n+          :icon-class=\"item.meta.icon\"\r\n+        ></svg-icon>\r\n+        <span slot=\"title\">{{ item.meta.title }}</span> \r\n+      </template>\r\n     </el-menu-item>\r\n \r\n     <el-submenu :index=\"v.path\" v-for=\"v in hasChildren\" :key=\"v.path\">\r\n       <template slot=\"title\">\r\n-        <!-- <i :class=\"v.meta.icon\"></i> -->\r\n+         <svg-icon\r\n+          v-if=\"v.meta && v.meta.icon\"\r\n+          :icon-class=\"v.meta.icon\"\r\n+        ></svg-icon>\r\n         <span>{{ v.meta.title }}</span>\r\n       </template>\r\n       <el-menu-item-group>\r\n         <el-menu-item\r\n-            :index=\"sub.path\"\r\n-            v-for=\"sub in v.children\"\r\n-            :key=\"sub.path\"\r\n-            @click=\"clickMen(sub)\"\r\n+          :index=\"sub.path\"\r\n+          v-for=\"sub in v.children\"\r\n+          :key=\"sub.path\"\r\n+          @click=\"clickMen(sub)\"\r\n         >\r\n-          <!-- <i :class=\"sub.meta.icon\"></i> -->\r\n+         <svg-icon\r\n+          v-if=\"sub.meta && sub.meta.icon\"\r\n+          :icon-class=\"sub.meta.icon\"\r\n+        ></svg-icon>\r\n           <span>{{ sub.meta.title }}</span>\r\n         </el-menu-item>\r\n       </el-menu-item-group>\r\n     </el-submenu>\r\n   </el-menu>\r\n </template>\r\n <script>\r\n-import {getList} from '@/api/system/menu/menu';\r\n+import { getList } from \"@/api/system/menu/menu\";\r\n \r\n export default {\r\n   data() {\r\n     return {\r\n       isCollapse: false,\r\n-      navList: [\r\n-      ],\r\n+      navList: [],\r\n     };\r\n   },\r\n   created() {\r\n     this.getMenu();\r\n@@ -69,12 +81,12 @@\n     },\r\n     getMenu() {\r\n       getList().then((res) => {\r\n         this.navList = res.data;\r\n-      })\r\n+      });\r\n     },\r\n     clickMen(item) {\r\n-      this.$router.push({path: item.path});\r\n+      this.$router.push({ path: item.path });\r\n     },\r\n   },\r\n };\r\n </script>\r\n@@ -88,12 +100,11 @@\n .el-menu {\r\n   height: 100%;\r\n   border: none;\r\n \r\n-h3 {\r\n-  color: #fff;\r\n-  text-align: center;\r\n-  line-height: 48px\r\n+  h3 {\r\n+    color: #fff;\r\n+    text-align: center;\r\n+    line-height: 48px;\r\n+  }\r\n }\r\n-\r\n-}\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654132526672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     text-color=\"#fff\"\r\n   >\r\n     <h3>管理系统</h3>\r\n     <el-menu-item\r\n-       default-active=\"String(activeNav)\r\n+       default-active=\"String(activeNav)“\r\n       :index=\"item.path\"\r\n       v-for=\"item in noChildren\"\r\n       :key=\"item.path\"\r\n       @click=\"clickMen(item)\"\r\n"
+                },
+                {
+                    "date": 1654132576688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     text-color=\"#fff\"\r\n   >\r\n     <h3>管理系统</h3>\r\n     <el-menu-item\r\n-       default-active=\"String(activeNav)“\r\n+      \r\n       :index=\"item.path\"\r\n       v-for=\"item in noChildren\"\r\n       :key=\"item.path\"\r\n       @click=\"clickMen(item)\"\r\n"
+                },
+                {
+                    "date": 1654132595947,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n     text-color=\"#fff\"\r\n   >\r\n     <h3>管理系统</h3>\r\n     <el-menu-item\r\n-      ：\r\n+      \r\n       :index=\"item.path\"\r\n       v-for=\"item in noChildren\"\r\n       :key=\"item.path\"\r\n       @click=\"clickMen(item)\"\r\n"
+                },
+                {
+                    "date": 1654135168875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,9 @@\n     },\r\n     activeNav() { //当前激活的导航\r\n         return this.$route.path\r\n       },\r\n-   \r\n+    \r\n   },\r\n   methods: {\r\n     handleOpen(key, keyPath) {\r\n       console.log(key, keyPath);\r\n"
                 }
             ],
             "date": 1653977263008,

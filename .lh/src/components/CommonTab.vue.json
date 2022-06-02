@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/components/CommonTab.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1654139968684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654139989797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,15 @@\n <template>\r\n-    \r\n-</template>\n\\ No newline at end of file\n+     <el-tabs v-model=\"activeTab\" type=\"card\" @tab-remove=\"removeTab\" @tab-click=\"tabClick\">\r\n+          <el-tab-pane v-for=\"(item, index) in tabsItem\"\r\n+                       :key=\"item.name\"\r\n+                       :label=\"item.title\"\r\n+                       :name=\"item.name\"\r\n+                       :closable=\"item.closable\"\r\n+                       :ref=\"item.ref\">\r\n+            <component :is=\"item.content\"></component>\r\n+          </el-tab-pane>\r\n+        </el-tabs>\r\n+</template>\r\n+\r\n+<\r\n+<script>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654139995747,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,6 +10,7 @@\n           </el-tab-pane>\r\n         </el-tabs>\r\n </template>\r\n \r\n-<\r\n-<script>\n\\ No newline at end of file\n+\r\n+<script>\r\n+</s\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654140002754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,5 @@\n </template>\r\n \r\n \r\n <script>\r\n-</s\n\\ No newline at end of file\n+</script>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654140061560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n                        :ref=\"item.ref\">\r\n             <component :is=\"item.content\"></component>\r\n           </el-tab-pane>\r\n         </el-tabs>\r\n+         <el-dropdown @command=\"handleCommand\" @visible-change=\"handleVisibleChange\"></el-dropdown>\r\n </template>\r\n \r\n \r\n <script>\r\n+\r\n </script>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654140093055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n                        :ref=\"item.ref\">\r\n             <component :is=\"item.content\"></component>\r\n           </el-tab-pane>\r\n         </el-tabs>\r\n-         <el-dropdown @command=\"handleCommand\" @visible-change=\"handleVisibleChange\"></el-dropdown>\r\n+        \r\n </template>\r\n \r\n \r\n <script>\r\n"
+                },
+                {
+                    "date": 1654140103002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,44 @@\n                        :ref=\"item.ref\">\r\n             <component :is=\"item.content\"></component>\r\n           </el-tab-pane>\r\n         </el-tabs>\r\n-        \r\n+            <el-dropdown @command=\"handleCommand\" @visible-change=\"handleVisibleChange\">\r\n+      <span class=\"vab-tabs-more\" :class=\"{ 'vab-tabs-more-active': active }\">\r\n+        <span class=\"vab-tabs-more-icon\">\r\n+          <i class=\"box box-t\"></i>\r\n+          <i class=\"box box-b\"></i>\r\n+        </span>\r\n+      </span>\r\n+      <template #dropdown>\r\n+        <el-dropdown-menu class=\"tabs-more\">\r\n+          <el-dropdown-item command=\"closeOthersTabs\">\r\n+            <vab-icon icon=\"close-line\" />\r\n+            <span>\r\n+              {{ translateTitle('关闭其他') }}\r\n+            </span>\r\n+          </el-dropdown-item>\r\n+          <el-dropdown-item command=\"closeLeftTabs\">\r\n+            <vab-icon icon=\"arrow-left-line\" />\r\n+            <span>\r\n+              {{ translateTitle('关闭左侧') }}\r\n+            </span>\r\n+          </el-dropdown-item>\r\n+          <el-dropdown-item command=\"closeRightTabs\">\r\n+            <vab-icon icon=\"arrow-right-line\" />\r\n+            <span>\r\n+              {{ translateTitle('关闭右侧') }}\r\n+            </span>\r\n+          </el-dropdown-item>\r\n+          <el-dropdown-item command=\"closeAllTabs\">\r\n+            <vab-icon icon=\"close-line\" />\r\n+            <span>\r\n+             '关闭全部') }}\r\n+            </span>\r\n+          </el-dropdown-item>\r\n+        </el-dropdown-menu>\r\n+      </template>\r\n+    </el-dropdown>\r\n </template>\r\n \r\n \r\n <script>\r\n"
+                },
+                {
+                    "date": 1654140111286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n           </el-dropdown-item>\r\n           <el-dropdown-item command=\"closeAllTabs\">\r\n             <vab-icon icon=\"close-line\" />\r\n             <span>\r\n-             '关闭全部') }}\r\n+             关闭全部 }}\r\n             </span>\r\n           </el-dropdown-item>\r\n         </el-dropdown-menu>\r\n       </template>\r\n"
+                },
+                {
+                    "date": 1654140168480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,46 +8,14 @@\n                        :ref=\"item.ref\">\r\n             <component :is=\"item.content\"></component>\r\n           </el-tab-pane>\r\n         </el-tabs>\r\n-            <el-dropdown @command=\"handleCommand\" @visible-change=\"handleVisibleChange\">\r\n-      <span class=\"vab-tabs-more\" :class=\"{ 'vab-tabs-more-active': active }\">\r\n-        <span class=\"vab-tabs-more-icon\">\r\n-          <i class=\"box box-t\"></i>\r\n-          <i class=\"box box-b\"></i>\r\n-        </span>\r\n-      </span>\r\n-      <template #dropdown>\r\n-        <el-dropdown-menu class=\"tabs-more\">\r\n-          <el-dropdown-item command=\"closeOthersTabs\">\r\n-            <vab-icon icon=\"close-line\" />\r\n-            <span>\r\n-              {{ translateTitle('关闭其他') }}\r\n-            </span>\r\n-          </el-dropdown-item>\r\n-          <el-dropdown-item command=\"closeLeftTabs\">\r\n-            <vab-icon icon=\"arrow-left-line\" />\r\n-            <span>\r\n-              {{ translateTitle('关闭左侧') }}\r\n-            </span>\r\n-          </el-dropdown-item>\r\n-          <el-dropdown-item command=\"closeRightTabs\">\r\n-            <vab-icon icon=\"arrow-right-line\" />\r\n-            <span>\r\n-              {{ translateTitle('关闭右侧') }}\r\n-            </span>\r\n-          </el-dropdown-item>\r\n-          <el-dropdown-item command=\"closeAllTabs\">\r\n-            <vab-icon icon=\"close-line\" />\r\n-            <span>\r\n-             关闭全部 }}\r\n-            </span>\r\n-          </el-dropdown-item>\r\n-        </el-dropdown-menu>\r\n-      </template>\r\n-    </el-dropdown>\r\n+        \r\n </template>\r\n \r\n \r\n <script>\r\n+ export default {\r\n \r\n+\r\n+ }\r\n </script>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654140184182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,8 @@\n \r\n <script>\r\n  export default {\r\n       \r\n-    name: \"Home\",\r\n+    name: \"Home\"\r\n \r\n  }\r\n </script>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654141323848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     @tab-click=\"tabClick\"\r\n   >\r\n     <el-tab-pane\r\n       v-for=\"(item, index) in tabsItem\"\r\n-      :key=\"item.m\"\r\n+      :key=\"item.me\"\r\n       :label=\"item.title\"\r\n       :name=\"item.name\"\r\n       :closable=\"item.closable\"\r\n       :ref=\"item.ref\"\r\n"
+                }
+            ],
+            "date": 1654139968684,
+            "name": "Commit-0",
+            "content": "<template>\r\n    \r\n</template>"
+        }
+    ]
+}

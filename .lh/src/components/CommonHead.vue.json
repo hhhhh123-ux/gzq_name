@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 12,
             "patches": [
                 {
                     "date": 1653986946324,
@@ -36,6 +36,26 @@
                 {
                     "date": 1653989526417,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n           <span class=\"hidden-xs-only\" style=\"margin-right: 15px\">{{ username }}</span>\r\n           <svg-icon\r\n               class=\"vab-dropdown\"\r\n               :class=\"{ 'vab-dropdown-active': active }\"\r\n-              icon=\"arrow-down-s-line\"\r\n+              icon-class==\"arrow-down-s-line\"\r\n           />\r\n         </div>\r\n         <template #dropdown>\r\n           <el-dropdown-menu>\r\n@@ -25,9 +25,9 @@\n               <svg-icon  icon-class='个人中心' class=\"user-line\"/>\r\n               个人中心\r\n             </el-dropdown-item>\r\n             <el-dropdown-item command=\"logout\">\r\n-              <svg-icon icon-class='退出登录' icon=\"logout-circle-r-line\"/>\r\n+              <svg-icon icon-class='退出登录' class=\"logout-circle-r-line\"/>\r\n               退出登录\r\n             </el-dropdown-item>\r\n           </el-dropdown-menu>\r\n         </template>\r\n"
+                },
+                {
+                    "date": 1654158008731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n <template>\r\n+\r\n   <el-menu\r\n       :default-active=\"activeIndex2\"\r\n       class=\"el-menu-demo\"\r\n       mode=\"horizontal\"\r\n@@ -9,25 +10,25 @@\n       active-text-color=\"#ffffff\"\r\n   >\r\n     <el-header style=\"text-align: right; font-size: 60px\">\r\n       <el-dropdown @command=\"handleCommand\">\r\n-        <el-avatar class=\"user-avatar\" :src=\"avatar\" style=\"margin-right: 15px\"/>\r\n         <div class=\"user-name\">\r\n-          <span class=\"hidden-xs-only\" style=\"margin-right: 15px\">{{ username }}</span>\r\n+          <el-avatar class=\"user-avatar\" :src=\"avatar\" style=\"margin-right:15px\"/>\r\n+          <span class=\"hidden-xs-only\" style=\"margin-right:15px \">{{username}}</span>\r\n           <svg-icon\r\n               class=\"vab-dropdown\"\r\n               :class=\"{ 'vab-dropdown-active': active }\"\r\n-              icon-class==\"arrow-down-s-line\"\r\n+              icon-class=\"arrow-down-s-line\"\r\n           />\r\n         </div>\r\n         <template #dropdown>\r\n           <el-dropdown-menu>\r\n             <el-dropdown-item command=\"personalCenter\">\r\n-              <svg-icon  icon-class='个人中心' class=\"user-line\"/>\r\n+              <svg-icon  icon-class='user'/>\r\n               个人中心\r\n             </el-dropdown-item>\r\n             <el-dropdown-item command=\"logout\">\r\n-              <svg-icon icon-class='退出登录' class=\"logout-circle-r-line\"/>\r\n+              <svg-icon icon-class='logout'/>\r\n               退出登录\r\n             </el-dropdown-item>\r\n           </el-dropdown-menu>\r\n         </template>\r\n"
+                },
+                {
+                    "date": 1654158018959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-\r\n+  \r\n   <el-menu\r\n       :default-active=\"activeIndex2\"\r\n       class=\"el-menu-demo\"\r\n       mode=\"horizontal\"\r\n@@ -92,5 +92,6 @@\n       })\r\n     },\r\n   }\r\n }\r\n-</script>\n\\ No newline at end of file\n+</script>\r\n+\r\n"
+                },
+                {
+                    "date": 1654158036065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,4 +94,8 @@\n   }\r\n }\r\n </script>\r\n \r\n+<style lang=\"scss\" scoped>\r\n+\r\n+\r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654158042974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-  <div\r\n+  <div></div>\r\n   <el-menu\r\n       :default-active=\"activeIndex2\"\r\n       class=\"el-menu-demo\"\r\n       mode=\"horizontal\"\r\n"
+                },
+                {
+                    "date": 1654158199598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,8 @@\n               username\r\n             }}</span>\r\n             <svg-icon\r\n               icon-class=\"vab\"\r\n-\r\n             />\r\n           </div>\r\n           <template #dropdown>\r\n             <el-dropdown-menu>\r\n"
                 }
             ],
             "date": 1653986946324,

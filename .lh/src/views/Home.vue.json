@@ -1,0 +1,126 @@
+{
+    "sourceFile": "src/views/Home.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 27,
+            "patches": [
+                {
+                    "date": 1654140536993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654140542421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n \r\n <script>\r\n import CommonAside from \"../components/CommonAside.vue\";\r\n import CommonHead from \"../components/CommonHead.vue\";\r\n-import CommonHead from \"../components/CommonHead.vue\";\r\n+import CommonHead from \"../components/CommonTab\";\r\n export default {\r\n   // eslint-disable-next-line vue/multi-word-component-names\r\n   name: \"Home\",\r\n   components: {\r\n"
+                },
+                {
+                    "date": 1654140549250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n \r\n <script>\r\n import CommonAside from \"../components/CommonAside.vue\";\r\n import CommonHead from \"../components/CommonHead.vue\";\r\n-import CommonHead from \"../components/CommonTab\";\r\n+import CommonTab from \"../components/CommonTab.vue\";\r\n export default {\r\n   // eslint-disable-next-line vue/multi-word-component-names\r\n   name: \"Home\",\r\n   components: {\r\n"
+                },
+                {
+                    "date": 1654140555707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,7 +23,8 @@\n   name: \"Home\",\r\n   components: {\r\n     CommonAside,\r\n     CommonHead,\r\n+    CommonTab.\r\n   },\r\n };\r\n </script>\r\n"
+                },
+                {
+                    "date": 1654140574076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,8 @@\n   name: \"Home\",\r\n   components: {\r\n     CommonAside,\r\n     CommonHead,\r\n-    CommonTab.\r\n+    CommonTab\r\n   },\r\n };\r\n </script>\r\n"
+                },
+                {
+                    "date": 1654140580486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,9 @@\n   name: \"Home\",\r\n   components: {\r\n     CommonAside,\r\n     CommonHead,\r\n-    CommonTab\r\n+    // eslint-disable-next-line vue/no-unused-components\r\n+    CommonTab,\r\n   },\r\n };\r\n </script>\r\n"
+                },
+                {
+                    "date": 1654140591015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n       <el-header>\r\n         <common-head></common-head>\r\n       </el-header>\r\n       <el-main style=\"padding: 0;\">\r\n+        \r\n         <router-view></router-view>\r\n       </el-main>\r\n     </el-container>\r\n   </el-container>\r\n"
+                },
+                {
+                    "date": 1654140597503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n       <el-header>\r\n         <common-head></common-head>\r\n       </el-header>\r\n       <el-main style=\"padding: 0;\">\r\n-        \r\n+        <common-tab></common-tab>\r\n         <router-view></router-view>\r\n       </el-main>\r\n     </el-container>\r\n   </el-container>\r\n"
+                },
+                {
+                    "date": 1654150890093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,11 @@\n       <el-header>\r\n         <common-head></common-head>\r\n       </el-header>\r\n       <el-main style=\"padding: 0;\">\r\n-        <common-tab></common-tab>\r\n+        <common-tab>\r\n+          \r\n+        </common-tab>\r\n         <router-view></router-view>\r\n       </el-main>\r\n     </el-container>\r\n   </el-container>\r\n"
+                },
+                {
+                    "date": 1654150896925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,11 @@\n         <common-head></common-head>\r\n       </el-header>\r\n       <el-main style=\"padding: 0;\">\r\n         <common-tab>\r\n-          \r\n+          <router-view></router-view>\r\n         </common-tab>\r\n-        <router-view></router-view>\r\n+       \r\n       </el-main>\r\n     </el-container>\r\n   </el-container>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1654151189904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n         <common-head></common-head>\r\n       </el-header>\r\n       <el-main style=\"padding: 0;\">\r\n         <common-tab>\r\n-          <router-view></router-view>\r\n         </common-tab>\r\n        \r\n       </el-main>\r\n     </el-container>\r\n"
+                },
+                {
+                    "date": 1654151195155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,9 @@\n       <el-header>\r\n         <common-head></common-head>\r\n       </el-header>\r\n       <el-main style=\"padding: 0;\">\r\n-        <common-tab>\r\n-        </common-tab>\r\n-       \r\n+        <common-tab></common-tab>\r\n       </el-main>\r\n     </el-container>\r\n   </el-container>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1654151338799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,11 @@\n       <el-header>\r\n         <common-head></common-head>\r\n       </el-header>\r\n       <el-main style=\"padding: 0;\">\r\n-        <common-tab></common-tab>\r\n+        <common-tab>\r\n+</common-tab>\r\n+       \r\n       </el-main>\r\n     </el-container>\r\n   </el-container>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1654151344246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,11 @@\n         <common-head></common-head>\r\n       </el-header>\r\n       <el-main style=\"padding: 0;\">\r\n         <common-tab>\r\n-</common-tab>\r\n        \r\n+        </common-tab>\r\n+       \r\n       </el-main>\r\n     </el-container>\r\n   </el-container>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1654157943787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n <template>\r\n   <el-container style=\"height: 100%\">\r\n-    <el-aside width=\"auto\">\r\n-      <common-aside></common-aside>\r\n-    </el-aside>\r\n+  \r\n     <el-container>\r\n       <el-header>\r\n         <common-head></common-head>\r\n       </el-header>\r\n"
+                },
+                {
+                    "date": 1654157950551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n <template>\r\n   <el-container style=\"height: 100%\">\r\n   \r\n     <el-container>\r\n-      <el-header>\r\n-        <common-head></common-head>\r\n-      </el-header>\r\n+        <el-aside width=\"auto\">\r\n+      <common-aside></common-aside>\r\n+    </el-aside>\r\n+     \r\n       <el-main style=\"padding: 0;\">\r\n         <common-tab>\r\n        \r\n         </common-tab>\r\n"
+                },
+                {
+                    "date": 1654157957027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,16 @@\n <template>\r\n   <el-container style=\"height: 100%\">\r\n-  \r\n+    <el-header>\r\n+      <common-head></common-head>\r\n+    </el-header>\r\n     <el-container>\r\n-        <el-aside width=\"auto\">\r\n-      <common-aside></common-aside>\r\n-    </el-aside>\r\n-     \r\n-      <el-main style=\"padding: 0;\">\r\n-        <common-tab>\r\n-       \r\n-        </common-tab>\r\n-       \r\n+      <el-aside width=\"auto\">\r\n+        <common-aside></common-aside>\r\n+      </el-aside>\r\n+\r\n+      <el-main style=\"padding: 0\">\r\n+        <common-tab> </common-tab>\r\n       </el-main>\r\n     </el-container>\r\n   </el-container>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1654158121092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,13 +2,12 @@\n   <el-container style=\"height: 100%\">\r\n     <el-header>\r\n       <common-head></common-head>\r\n     </el-header>\r\n-    <el-container>\r\n+    <el-container >\r\n       <el-aside width=\"auto\">\r\n         <common-aside></common-aside>\r\n       </el-aside>\r\n-\r\n       <el-main style=\"padding: 0\">\r\n         <common-tab> </common-tab>\r\n       </el-main>\r\n     </el-container>\r\n"
+                },
+                {
+                    "date": 1654158127515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   <el-container style=\"height: 100%\">\r\n     <el-header>\r\n       <common-head></common-head>\r\n     </el-header>\r\n-    <el-container >\r\n+    <el-container style=\"\">\r\n       <el-aside width=\"auto\">\r\n         <common-aside></common-aside>\r\n       </el-aside>\r\n       <el-main style=\"padding: 0\">\r\n"
+                },
+                {
+                    "date": 1654158135361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   <el-container style=\"height: 100%\">\r\n     <el-header>\r\n       <common-head></common-head>\r\n     </el-header>\r\n-    <el-container style=\"\">\r\n+    <el-container style=\"weight: 100\">\r\n       <el-aside width=\"auto\">\r\n         <common-aside></common-aside>\r\n       </el-aside>\r\n       <el-main style=\"padding: 0\">\r\n"
+                },
+                {
+                    "date": 1654163955838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n   <el-container style=\"height: 100%\">\r\n     <el-header>\r\n       <common-head></common-head>\r\n     </el-header>\r\n-    <el-container style=\"weight: 100\">\r\n-      <el-aside width=\"auto\">\r\n+    <el-container style=\"weight: 100%\">\r\n+      <el-aside >\r\n         <common-aside></common-aside>\r\n       </el-aside>\r\n       <el-main style=\"padding: 0\">\r\n         <common-tab> </common-tab>\r\n"
+                },
+                {
+                    "date": 1654163981930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n <template>\r\n-  <el-container style=\"height: 100%\">\r\n+  <el-container style=\"height: 100%;w\">\r\n     <el-header>\r\n       <common-head></common-head>\r\n     </el-header>\r\n     <el-container style=\"weight: 100%\">\r\n-      <el-aside >\r\n+      <el-aside>\r\n         <common-aside></common-aside>\r\n       </el-aside>\r\n       <el-main style=\"padding: 0\">\r\n         <common-tab> </common-tab>\r\n"
+                },
+                {
+                    "date": 1654163988289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-  <el-container style=\"height: 100%;w\">\r\n+  <el-container style=\"height: 100%;weight\">\r\n     <el-header>\r\n       <common-head></common-head>\r\n     </el-header>\r\n     <el-container style=\"weight: 100%\">\r\n"
+                },
+                {
+                    "date": 1654163994843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-  <el-container style=\"height: 100%;weight\">\r\n+  <el-container style=\"height: 100%; weight:100%\">\r\n     <el-header>\r\n       <common-head></common-head>\r\n     </el-header>\r\n     <el-container style=\"weight: 100%\">\r\n"
+                },
+                {
+                    "date": 1654164005831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   <el-container style=\"height: 100%; weight:100%\">\r\n     <el-header>\r\n       <common-head></common-head>\r\n     </el-header>\r\n-    <el-container style=\"weight: 100%\">\r\n+    <el-containerstyle=\"weight: 100%\">\r\n       <el-aside>\r\n         <common-aside></common-aside>\r\n       </el-aside>\r\n       <el-main style=\"padding: 0\">\r\n"
+                },
+                {
+                    "date": 1654164012984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <template>\r\n   <el-container style=\"height: 100%; weight:100%\">\r\n-    <el-header>\r\n+    <el-header >\r\n       <common-head></common-head>\r\n     </el-header>\r\n-    <el-containerstyle=\"weight: 100%\">\r\n+    <el-container style=\"weight: 100%\">\r\n       <el-aside>\r\n         <common-aside></common-aside>\r\n       </el-aside>\r\n       <el-main style=\"padding: 0\">\r\n"
+                },
+                {
+                    "date": 1654164022233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n   <el-container style=\"height: 100%; weight:100%\">\r\n-    <el-header >\r\n+    <el-header weight:100%\">\r\n       <common-head></common-head>\r\n     </el-header>\r\n     <el-container style=\"weight: 100%\">\r\n       <el-aside>\r\n"
+                },
+                {
+                    "date": 1654164028990,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n   <el-container style=\"height: 100%; weight:100%\">\r\n-    <el-header styweight:100%>\r\n+    <el-header stylweight:100%>\r\n       <common-head></common-head>\r\n     </el-header>\r\n     <el-container style=\"weight: 100%\">\r\n       <el-aside>\r\n"
+                }
+            ],
+            "date": 1654140536993,
+            "name": "Commit-0",
+            "content": "<template>\r\n  <el-container style=\"height: 100%\">\r\n    <el-aside width=\"auto\">\r\n      <common-aside></common-aside>\r\n    </el-aside>\r\n    <el-container>\r\n      <el-header>\r\n        <common-head></common-head>\r\n      </el-header>\r\n      <el-main style=\"padding: 0;\">\r\n        <router-view></router-view>\r\n      </el-main>\r\n    </el-container>\r\n  </el-container>\r\n</template>\r\n\r\n<script>\r\nimport CommonAside from \"../components/CommonAside.vue\";\r\nimport CommonHead from \"../components/CommonHead.vue\";\r\nimport CommonHead from \"../components/CommonHead.vue\";\r\nexport default {\r\n  // eslint-disable-next-line vue/multi-word-component-names\r\n  name: \"Home\",\r\n  components: {\r\n    CommonAside,\r\n    CommonHead,\r\n  },\r\n};\r\n</script>\r\n"
+        }
+    ]
+}
