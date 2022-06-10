@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 21,
+            "activePatchIndex": 28,
             "patches": [
                 {
                     "date": 1654132007192,
@@ -92,6 +92,34 @@
                 {
                     "date": 1654164218289,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,15 @@\n <template>\n   <el-container class=\"contanier_box\" style=\"height: 100%\">\n     <!-- 头部 -->\n-   \n+     <el-header>\n+        <common-head></common-head>\n+      </el-header>\n     <!-- 头部下面的内容 -->\n     <el-container>\n        <el-aside width=\"auto\">\n       <common-aside></common-aside>\n     </el-aside>\n-    \n       <!-- 主要内容 -->\n       <el-main>\n         <common-tab> </common-tab>\n           <router-view></router-view>\n@@ -33,5 +34,10 @@\n };\n </script>\n  \n <style lang=\"scss\" scoped>\n+.el-header {\n+    background-color: #beb3d1;\n+    color: rgb(51, 51, 51);\n+    line-height: 60px;\n+  }\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654590277781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n     </el-aside>\n       <!-- 主要内容 -->\n       <el-main>\n         <common-tab> </common-tab>\n+        \n           <router-view></router-view>\n       </el-main>\n     </el-container>\n   </el-container>\n"
+                },
+                {
+                    "date": 1654590283366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,13 @@\n     </el-aside>\n       <!-- 主要内容 -->\n       <el-main>\n         <common-tab> </common-tab>\n-        \n+            <div style=\"padding:15px\">\n+          <keep-alive :include=\"catch_components\">\n+            <router-view />\n+          </keep-alive>\n+        </div>\n           <router-view></router-view>\n       </el-main>\n     </el-container>\n   </el-container>\n"
+                },
+                {
+                    "date": 1654590289043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n           <keep-alive :include=\"catch_components\">\n             <router-view />\n           </keep-alive>\n         </div>\n-          <router-view></router-view>\n+         \n       </el-main>\n     </el-container>\n   </el-container>\n </template>\n"
+                },
+                {
+                    "date": 1654590294268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,23 @@\n <template>\n   <el-container class=\"contanier_box\" style=\"height: 100%\">\n     <!-- 头部 -->\n-     <el-header>\n-        <common-head></common-head>\n-      </el-header>\n+    <el-header>\n+      <common-head></common-head>\n+    </el-header>\n     <!-- 头部下面的内容 -->\n     <el-container>\n-       <el-aside width=\"auto\">\n-      <common-aside></common-aside>\n-    </el-aside>\n+      <el-aside width=\"auto\">\n+        <common-aside></common-aside>\n+      </el-aside>\n       <!-- 主要内容 -->\n       <el-main>\n         <common-tab> </common-tab>\n-            <div style=\"padding:15px\">\n+        <div style=\"padding: 15px\">\n           <keep-alive :include=\"catch_components\">\n-            <router-view />\n+            <router-view></router-view>\n           </keep-alive>\n         </div>\n-         \n       </el-main>\n     </el-container>\n   </el-container>\n </template>\n@@ -40,9 +39,9 @@\n </script>\n  \n <style lang=\"scss\" scoped>\n .el-header {\n-    background-color: #beb3d1;\n-    color: rgb(51, 51, 51);\n-    line-height: 60px;\n-  }\n+  background-color: #beb3d1;\n+  color: rgb(51, 51, 51);\n+  line-height: 60px;\n+}\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1654590520275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         <common-aside></common-aside>\n       </el-aside>\n       <!-- 主要内容 -->\n       <el-main>\n-        <common-tab> </common-tab>\n+        <common-tab></common-tab>\n         <div style=\"padding: 15px\">\n           <keep-alive :include=\"catch_components\">\n             <router-view></router-view>\n           </keep-alive>\n"
+                },
+                {
+                    "date": 1654590530806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         <common-tab></common-tab>\n         <div style=\"padding: 15px\">\n           <keep-alive :include=\"catch_components\">\n             <router-view></router-view>\n-          </keep-alive>\n+      \n         </div>\n       </el-main>\n     </el-container>\n   </el-container>\n"
+                },
+                {
+                    "date": 1654590537925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,13 +11,9 @@\n       </el-aside>\n       <!-- 主要内容 -->\n       <el-main>\n         <common-tab></common-tab>\n-        <div style=\"padding: 15px\">\n-          <keep-alive :include=\"catch_components\">\n             <router-view></router-view>\n-      \n-        </div>\n       </el-main>\n     </el-container>\n   </el-container>\n </template>\n"
                 }
             ],
             "date": 1654132007192,

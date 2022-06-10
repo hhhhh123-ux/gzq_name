@@ -32,7 +32,7 @@
 </template>
 <script>
 import { getUserInfo, logOut } from "@/api/system/user/user";
-import toLoginRoute from "@/router/index";
+import {toLoginRoute} from "@/router/index";
 import { mapActions } from "vuex";
 
 export default {
@@ -73,9 +73,11 @@ export default {
         if (res.code == "200") {
           var storage = window.localStorage;
           storage.clear();
+          
         }
       });
-      await this.$router.push(toLoginRoute(this.$route.fullPath));
+      console.log("path",this.$route.fullPath);
+      this.$router.push(toLoginRoute(this.$route.fullPath));
     },
     userInfo() {
       getUserInfo().then((res) => {

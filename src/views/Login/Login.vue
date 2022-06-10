@@ -196,8 +196,9 @@ export default {
               if (res.code == "200") {
                 console.log(res.data.token);
                 setToken(res.data.token);
-                this.$router.push({ name: "Home" });
+                this.$router.push({ name: "Index" });
               } else {
+                // eslint-disable-next-line no-undef
                 resetRouter(); // 调用router里的resetRouter方法重新匹配路由
                 this.$router.replace("/"); // 重定向到首页
               }

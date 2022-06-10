@@ -16,7 +16,7 @@
       >
       </el-tab-pane>
     </el-tabs>
-      <el-dropdown trigger="click" style="cursor: pointer; float: right">
+    <el-dropdown trigger="click" style="cursor: pointer; float: right">
       <span class="el-dropdown-link"><svg-icon icon-class="drag" /></span>
       <el-dropdown-menu class="tabs-more">
         <el-dropdown-item>关闭全部页面</el-dropdown-item>
@@ -34,17 +34,22 @@ export default {
   name: "Tab",
   data() {
     return {
-      activeTab: "",
-      isCollapse: false, //false为展开 true为收缩
+      activeTab: "1",
+      tabIndex: 1,
       tabsItem: [
         {
-          path: "/Index",
-          name: "Index",
+          name: "1",
           closable: false,
           ref: "tabs",
           meta: {
             title: "首页",
           },
+        },
+      ],
+      tabsPath: [
+        {
+          name: "1",
+          path: "/Index",
         },
       ],
     };
@@ -73,28 +78,29 @@ export default {
     if (sessionTabs.currTabsItem.length != 0) {
       for (let i = 0; i < sessionTabs.currTabsItem.length; i++) {
         this.tabsItem.push({
-          title: sessionTabs.currTabsItem[i].title,
+          meta: {
+            title: sessionTabs.currTabsItem[i].title,
+          },
           name: sessionTabs.currTabsItem[i].name,
           closable: true,
           ref: sessionTabs.currTabsItem[i].ref,
-          content: sessionTabs.currTabsItem[i].content,
         });
       }
-      // for (let j = 0; j < sessionTabs.currTabsPath.length; j++) {
-      //   this.tabsPath.push({
-      //     name: sessionTabs.currTabsPath[j].name,
-      //     path: sessionTabs.currTabsPath[j].path,
-      //   });
-      // }
+      for (let j = 0; j < sessionTabs.currTabsPath.length; j++) {
+        this.tabsPath.push({
+          name: sessionTabs.currTabsPath[j].name,
+          path: sessionTabs.currTabsPath[j].path,
+        });
+      }
       this.activeTab = sessionTabs.currActiveTabs;
       this.tabIndex = sessionTabs.currIndex;
       //避免强制修改url 出现浏览器的url输入框的路径和当前tabs选中的路由路径不匹配
-      // const activePath = this.tabsPath.filter(
-      //   (item) => item.name == this.activeTab
-      // );
-      // this.$router.push({
-      //   path: activePath[0].path,
-      // });
+      const activePath = this.tabsPath.filter(
+        (item) => item.name == this.activeTab
+      );
+      this.$router.push({
+        path: activePath[0].path,
+      });
     }
   },
   watch: {
@@ -102,9 +108,11 @@ export default {
       //监听路由的变化，动态生成tabs
       let flag = true; //判断是否需要新增页面
       const path = to.path;
-      console.log("Object.keys(to.meta).length==", Object.keys(to.meta).length);
+      // eslint-disable-next-line no-empty
+      if(path ==='/Index'){
+        flag=false;
+      }
       if (Object.keys(to.meta).length != 0) {
-        console.log("this.$refs.tabs.length==", this.$refs.tabs.length);
         for (let i = 0; i < this.$refs.tabs.length; i++) {
           if (i != 0) {
             //首页不判断 如果页面已存在，则直接定位当页面，否则新增tab页面
@@ -120,10 +128,9 @@ export default {
           const thisName = to.meta.title;
           // const thisComp = to.meta.comp;
           //对tabs的当前激活下标和tabs数量进行自加
-          let newActiveIndex = to.name;
+          let newActiveIndex = ++this.tabIndex + '';
           //动态双向追加tabs
           this.tabsItem.push({
-            path: path,
             name: String(newActiveIndex),
             ref: "tabs",
             closable: true,
@@ -132,26 +139,19 @@ export default {
             },
             // content: thisComp,
           });
-          // this.activeTab = newActiveIndex;
-          // if (this.tabsPath.indexOf(path) == -1) {
-          //   this.tabsPath.push({
-          //     name: newActiveIndex,
-          //     path: path,
-          //   });
-          // }
+          this.activeTab = newActiveIndex;
+          if (this.tabsPath.indexOf(path) == -1) {
+            this.tabsPath.push({
+              name: newActiveIndex,
+              path: path,
+            });
+          }
         }
       }
     },
   },
   methods: {
-    isOpen() {
-      //判断左侧栏是否展开或收缩
-      if (this.isCollapse == false) {
-        this.isCollapse = true;
-      } else {
-        this.isCollapse = false;
-      }
-    },
+  
     isActive(path) {
       return path === handleActivePath(this.$route, true);
     },
@@ -182,11 +182,15 @@ export default {
        * thisTab:当前选中的tabs的实例
        * 通过当前选中tabs的实例获得当前实例的path 重新定位路由
        * */
-      if (this.isActive(thisTab.name)) {
-        this.$baseEventBus.$emit("reload-router-view");
-      } else {
-        this.$router.push(this.tabsItem[thisTab.index]);
-      }
+      // if (this.isActive(thisTab.name)) {
+      //   this.$baseEventBus.$emit("reload-router-view");
+      // } else {
+      //   this.$router.push(this.tabsItem[thisTab.index]);
+      // }
+      let val = this.tabsPath.filter((item) => thisTab.name == item.name);
+      this.$router.push({
+        path: val[0].path,
+      });
     },
   },
 };
@@ -194,76 +198,73 @@ export default {
 
 
 <style lang="scss" scoped>
-  .vab-tabs {
-    position: relative;
-    box-sizing: border-box;
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 50px;
-    padding-right: 20px;
-    padding-left: 20px;
-    user-select: none;
-    background: #fff;
-    border-top: 1px solid #f6f6f6;
+.vab-tabs {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  padding-right: 20px;
+  padding-left: 20px;
+  user-select: none;
+  background: #fff;
+  border-top: 1px solid #f6f6f6;
 
-    ::v-deep {
-      .fold-unfold {
-        margin-right: 20px;
-      }
-
-      [class*='ri'] {
-        margin-right: 3px;
-      }
+  ::v-deep {
+    .fold-unfold {
+      margin-right: 20px;
     }
 
-    &-content {
-      width: calc(100% - 40px);
+    [class*="ri"] {
+      margin-right: 3px;
+    }
+  }
 
-      &-card {
-        height: 34px;
+  &-content {
+    width: calc(100% - 40px);
 
-        ::v-deep {
-          .el-tabs__nav-next,
-          .el-tabs__nav-prev {
-            height: 34px;
-            line-height: 34px;
+    &-card {
+      height: 34px;
+
+      ::v-deep {
+        .el-tabs__nav-next,
+        .el-tabs__nav-prev {
+          height: 34px;
+          line-height: 34px;
+        }
+
+        .el-tabs__header {
+          border-bottom: 0;
+
+          .el-tabs__nav {
+            border: 0;
           }
 
-          .el-tabs__header {
-            border-bottom: 0;
+          .el-tabs__item {
+            box-sizing: border-box;
+            height: 34px;
+            margin-right: 5px;
+            line-height: 34px;
+            border: 1px solid #dcdfe6;
+            border-radius: 2.5px;
+            transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
 
-            .el-tabs__nav {
-              border: 0;
+            &.is-active {
+              color: #1890ff;
+              background: mix(#fff, #1890ff, 90%);
+              border: 1px solid #1890ff;
+              outline: none;
             }
 
-            .el-tabs__item {
-              box-sizing: border-box;
-              height: 34px;
-              margin-right: 5px;
-              line-height: 34px;
-              border: 1px solid #dcdfe6;
-              border-radius: 2.5px;
-              transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
-
-              &.is-active {
-                color: #1890ff;
-                background: mix(#fff, #1890ff, 90%);
-                border: 1px solid #1890ff;
-                outline: none;
-              }
-
-              &:hover {
-                border: 1px solid #1890ff;
-              }
+            &:hover {
+              border: 1px solid #1890ff;
             }
           }
         }
       }
-
-   
-     
     }
   }
+}
 </style>

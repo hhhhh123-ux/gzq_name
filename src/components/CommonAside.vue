@@ -56,7 +56,7 @@ import { getList } from "@/api/system/menu/menu";
 export default {
   data() {
     return {
-      isCollapse: false,
+      isCollapse: true,
       activeTab: "1", //默认显示的tab
       tabIndex: 1, //tab目前显示数
       navList: [],
