@@ -77,9 +77,13 @@ export default {
     console.log("sessionTabs==", sessionTabs);
     if (sessionTabs.currTabsItem.length != 0) {
       for (let i = 0; i < sessionTabs.currTabsItem.length; i++) {
+        console.log("tabsItem,", this.tabsItem);
+        console.log("i", i);
+        console.log("currTabsItem", sessionTabs.currTabsItem[i]);
+         console.log("title", sessionTabs.currTabsItem[i]);
         this.tabsItem.push({
           meta: {
-            title: sessionTabs.currTabsItem[i].title,
+            title: sessionTabs.currTabsItem[i].meta.title,
           },
           name: sessionTabs.currTabsItem[i].name,
           closable: true,
@@ -87,6 +91,8 @@ export default {
         });
       }
       for (let j = 0; j < sessionTabs.currTabsPath.length; j++) {
+        console.log("tabsPath", this.tabsPath);
+        console.log("currTabsPath", sessionTabs.currTabsPath[j]);
         this.tabsPath.push({
           name: sessionTabs.currTabsPath[j].name,
           path: sessionTabs.currTabsPath[j].path,
@@ -109,8 +115,8 @@ export default {
       let flag = true; //判断是否需要新增页面
       const path = to.path;
       // eslint-disable-next-line no-empty
-      if(path ==='/Index'){
-        flag=false;
+      if (path === "/Index") {
+        flag = false;
       }
       if (Object.keys(to.meta).length != 0) {
         for (let i = 0; i < this.$refs.tabs.length; i++) {
@@ -128,7 +134,7 @@ export default {
           const thisName = to.meta.title;
           // const thisComp = to.meta.comp;
           //对tabs的当前激活下标和tabs数量进行自加
-          let newActiveIndex = ++this.tabIndex + '';
+          let newActiveIndex = ++this.tabIndex + "";
           //动态双向追加tabs
           this.tabsItem.push({
             name: String(newActiveIndex),
@@ -151,7 +157,6 @@ export default {
     },
   },
   methods: {
-  
     isActive(path) {
       return path === handleActivePath(this.$route, true);
     },
@@ -175,18 +180,9 @@ export default {
       this.activeTab = activeName;
       this.tabsItem = tabs.filter((tab) => tab.name !== targetName);
       //在tabsPath中删除当前被删除tab的path
-      //this.tabsPath = this.tabsPath.filter((item) => item.name !== targetName);
+      this.tabsPath = this.tabsPath.filter((item) => item.name !== targetName);
     },
     tabClick(thisTab) {
-      /*
-       * thisTab:当前选中的tabs的实例
-       * 通过当前选中tabs的实例获得当前实例的path 重新定位路由
-       * */
-      // if (this.isActive(thisTab.name)) {
-      //   this.$baseEventBus.$emit("reload-router-view");
-      // } else {
-      //   this.$router.push(this.tabsItem[thisTab.index]);
-      // }
       let val = this.tabsPath.filter((item) => thisTab.name == item.name);
       this.$router.push({
         path: val[0].path,

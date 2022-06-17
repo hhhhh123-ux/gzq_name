@@ -85,7 +85,6 @@ export default {
 
   methods: {
     async showEdit(row) {
-      console.log("add", row);
       this.listLoading = true
       this.form.remarks = row.remarks;
       this.form.tableName = row.tableName;
@@ -114,12 +113,10 @@ export default {
         if (valid) {
           //新增信息
           const { msg } = await generator(this.form)
-          console.log("msg1",msg)
           this.$message({
             type:"success",
             message:msg
           })
-          console.log("msg2",msg)
           this.$emit('fetch-data')
           this.close()
         }

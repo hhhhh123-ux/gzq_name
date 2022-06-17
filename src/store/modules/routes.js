@@ -61,15 +61,12 @@ const actions = {
     async setRoutes({commit}, mode = 'none') {
         // 默认前端路由
         let routes = [...asyncRoutes]
-        console.log("routessss",routes)
         // 设置游客路由关闭路由拦截(不需要可以删除)
         const control = mode === 'visit' ? false : rolesControl
         // 设置后端路由(不需要可以删除)
         if (authentication === 'all') {
             const {data} = await getList()
-            console.log("routeData", data)
             if (!isArray(data)) {
-                console.log("error")
                 this.$message.error(
                     '路由格式返回有误！'
                 )
@@ -80,7 +77,6 @@ const actions = {
         }
         // 根据权限和rolesControl过滤路由
         //const accessRoutes = filterRoutes([...constantRoutes, ...routes], control)
-        console.log("routessss",routes)
         // 设置菜单所需路由
         commit('setRoutes', JSON.parse(JSON.stringify(routes)))
         // 根据可访问路由重置Vue Router

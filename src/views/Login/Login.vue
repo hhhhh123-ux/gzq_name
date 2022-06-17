@@ -194,7 +194,6 @@ export default {
             this.loading = true;
             await login(this.loginForm).then((res) => {
               if (res.code == "200") {
-                console.log(res.data.token);
                 setToken(res.data.token);
                 this.$router.push({ name: "Index" });
               } else {

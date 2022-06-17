@@ -15,21 +15,38 @@ Vue.use(VueRouter);
 export const constantRoutes = [
   {
     path: "/",
-    name: "Login",
-    redirect: "/Login",
+    name: "Home",
+    redirect: "/Home",
   },
+
   {
-    path: "/Index",
-    name: "Index",
+    path: "/Home",
+    name: "Home",
     component: () => import("@/vab/layouts/index"),
     meta: {
       hidden: true,
     },
-    children: [],
+    children: [{
+      path: "/Index",
+      name: "Index",
+      meta: {
+        hidden: true,
+      },
+      component: () => import("@/views/front/Index"),
+    },
+    {
+      path: "/user",
+      name: "user",
+      meta: {
+        hidden: true,
+      },
+      component: () => import("@/views/System/user/index"),
+    }
+    ],
   },
   {
     path: "/Login",
-    name: "login",
+    name: "Login",
     meta: {
       hidden: true,
     },
@@ -66,7 +83,7 @@ router.beforeEach(async (to, from, next) => {
     if (store.getters["routes/routes"].length) {
       if (to.path === "/Login") {
         // if is logged in, redirect to the home page
-        next({ path: "/Home" });
+        next({ path: "/" });
         // NProgress.done()
       } else {
         console.log("to.path", to.path);
@@ -84,6 +101,13 @@ router.beforeEach(async (to, from, next) => {
         next();
       } else {
         try {
+
+          // if (to.matched.length === 0) {
+          //   // 如果未匹配到路由
+          //   from.name ? next({ name: from.name }) : next("/"); // 如果上级也未匹配到路由则跳转登录页面，如果上级能匹配到则转上级路由
+          // } else {
+          //   next(); // 如果匹配到正确跳转
+          // }
           // get user info
           // await store.dispatch('user/getInfo')
           //调用获取动态的接口
@@ -100,11 +124,11 @@ router.beforeEach(async (to, from, next) => {
             await store.dispatch("routes/setRoutes", "all")
           );
           // 调用router.addRoutes方法,将异步路由添加进去
-          //const {data} =await store.dispatch('routes/setRoutes', 'all')
+          // const {data} =await store.dispatch('routes/setRoutes', 'all')
           // router.addRoutes(data)
           // // 在这动态添加最后的通配路由，确保先有动态路由、再有通配路由，解决动态路由刷新会跳转到404问题
           // let lastRou = [{ path: '*', redirect: '/404' }]
-          //router.addRoutes(lastRou)
+          // router.addRoutes(lastRou)
           next();
         } catch (error) {
           // remove token and go to login page to re-login
@@ -132,7 +156,6 @@ router.beforeEach(async (to, from, next) => {
  * @param currentPath 当前页面地址
  */
 export function toLoginRoute(currentPath) {
-    console.log("currentPath",currentPath);
   if (recordRoute && currentPath !== "/")
     return {
       path: "/Login",
@@ -164,7 +187,64 @@ function createRouter(routes = constantRoutes) {
     scrollBehavior: () => ({
       y: 0,
     }),
-    routes: routes,
+    routes:[
+      {
+        path: "/",
+        name: "Home",
+        redirect: "/Home",
+      },
+    
+      {
+        path: "/Home",
+        name: "Home",
+        component: () => import("@/vab/layouts/index"),
+        meta: {
+          hidden: true,
+        },
+        children: [{
+          path: "/Index",
+          name: "Index",
+          meta: {
+            hidden: true,
+          },
+          component: () => import("@/views/front/Index"),
+        },
+        {
+          path: "/user",
+          name: "user",
+          meta: {
+            title: "用户管理",
+            hidden: true,
+          },
+          component: () => import("@/views/System/user/index"),
+        }
+        ],
+      },
+      {
+        path: "/Login",
+        name: "Login",
+        meta: {
+          hidden: true,
+        },
+        component: () => import("@/views/Login/Login"),
+      },
+      {
+        path: "/403",
+        name: "403",
+        component: () => import("@/views/403"),
+        meta: {
+          hidden: true,
+        },
+      },
+      {
+        path: "/404",
+        name: "404",
+        component: () => import("@/views/404"),
+        meta: {
+          hidden: true,
+        },
+      },
+    ],
   });
   return router123;
 }

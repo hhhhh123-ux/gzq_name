@@ -3,11 +3,31 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 5,
             "patches": [
                 {
                     "date": 1653978184708,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1654855677613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,12 @@\n     \"build\": \"vue-cli-service build\",\n     \"lint\": \"vue-cli-service lint\"\n   },\n   \"dependencies\": {\n+    \"@babel/preset-env\": \"^7.18.2\",\n+    \"@element-plus/icons-vue\": \"^2.0.1\",\n     \"axios\": \"^0.24.0\",\n+    \"bpmn-js\": \"^9.2.2\",\n     \"core-js\": \"^3.20.2\",\n     \"element-ui\": \"^2.15.7\",\n     \"js-cookie\": \"^3.0.1\",\n     \"node-polyfill-webpack-plugin\": \"^1.1.4\",\n@@ -20,18 +23,19 @@\n     \"vue-template-compiler\": \"^2.6.14\",\n     \"vuex\": \"^3.6.2\"\n   },\n   \"devDependencies\": {\n-    \"@babel/core\": \"^7.12.16\",\n+    \"@babel/core\": \"^7.18.2\",\n     \"@babel/eslint-parser\": \"^7.12.16\",\n     \"@vue/cli-plugin-babel\": \"~5.0.0\",\n     \"@vue/cli-plugin-eslint\": \"~5.0.0\",\n     \"@vue/cli-service\": \"~5.0.0\",\n     \"eslint\": \"^7.32.0\",\n     \"eslint-plugin-vue\": \"^8.0.3\",\n-    \"vue-template-compiler\": \"^2.6.14\",\n     \"sass\": \"^1.49.7\",\n-    \"sass-loader\": \"10.2.0\"\n+    \"sass-loader\": \"10.2.0\",\n+    \"svg-sprite-loader\": \"^6.0.9\",\n+    \"vue-template-compiler\": \"^2.6.14\"\n   },\n   \"eslintConfig\": {\n     \"root\": true,\n     \"env\": {\n"
+                },
+                {
+                    "date": 1655083498090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n   \"dependencies\": {\n     \"@babel/preset-env\": \"^7.18.2\",\n     \"@element-plus/icons-vue\": \"^2.0.1\",\n     \"axios\": \"^0.24.0\",\n-    \"bpmn-js\": \"^9.2.2\",\n+    “bpmn-js”: “^8.7.3”,\n+    \"bpmn-js-properties-panel\": \"^1.1.1\",\n+    \"camunda-bpmn-moddle\": \"^6.1.2\",\n     \"core-js\": \"^3.20.2\",\n     \"element-ui\": \"^2.15.7\",\n     \"js-cookie\": \"^3.0.1\",\n     \"node-polyfill-webpack-plugin\": \"^1.1.4\",\n"
+                },
+                {
+                    "date": 1655083509821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   \"dependencies\": {\n     \"@babel/preset-env\": \"^7.18.2\",\n     \"@element-plus/icons-vue\": \"^2.0.1\",\n     \"axios\": \"^0.24.0\",\n-    “bpmn-js”: “^8.7.3”,\n+    \"bpmn-js\": \"^8.7.3\",\n     \"bpmn-js-properties-panel\": \"^1.1.1\",\n     \"camunda-bpmn-moddle\": \"^6.1.2\",\n     \"core-js\": \"^3.20.2\",\n     \"element-ui\": \"^2.15.7\",\n"
+                },
+                {
+                    "date": 1655083520204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n     \"@babel/preset-env\": \"^7.18.2\",\n     \"@element-plus/icons-vue\": \"^2.0.1\",\n     \"axios\": \"^0.24.0\",\n     \"bpmn-js\": \"^8.7.3\",\n-    \"bpmn-js-properties-panel\": \"^1.1.1\",\n+    \"bpmn-js-properties-panel\": \"^0.44.0\",\n     \"camunda-bpmn-moddle\": \"^6.1.2\",\n     \"core-js\": \"^3.20.2\",\n     \"element-ui\": \"^2.15.7\",\n     \"js-cookie\": \"^3.0.1\",\n"
+                },
+                {
+                    "date": 1655083530080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     \"@element-plus/icons-vue\": \"^2.0.1\",\n     \"axios\": \"^0.24.0\",\n     \"bpmn-js\": \"^8.7.3\",\n     \"bpmn-js-properties-panel\": \"^0.44.0\",\n-    \"camunda-bpmn-moddle\": \"^6.1.2\",\n+    \"camunda-bpmn-moddle\": \"^5.1.2\",\n     \"core-js\": \"^3.20.2\",\n     \"element-ui\": \"^2.15.7\",\n     \"js-cookie\": \"^3.0.1\",\n     \"node-polyfill-webpack-plugin\": \"^1.1.4\",\n"
                 }
             ],
             "date": 1653978184708,

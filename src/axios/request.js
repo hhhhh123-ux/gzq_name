@@ -16,7 +16,6 @@ import {toLoginRoute} from "@/router";
 
 
 const requestConf=(config) => {
-     console.log("config.url",config.url)
      if(config.url!='/login/code' && config.url!='/login/login') {
          let token = localStorage.getItem('token');
          // 设置请求头
@@ -33,7 +32,6 @@ const requestConf=(config) => {
   return config;
 }
 instance.interceptors.request.use(requestConf,(error) => {
-    console.log(error);
     return Promise.reject();
   }
 );

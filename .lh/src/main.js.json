@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 63,
+            "activePatchIndex": 64,
             "patches": [
                 {
                     "date": 1653974092074,
@@ -260,6 +260,10 @@
                 {
                     "date": 1653984966013,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import router from './router'\n import store from '@/store'\n import ElementUI from 'element-ui'\n import 'element-ui/lib/theme-chalk/index.css';\n-import '@/icons/ic'\n+import '@/icons/ico'\n Vue.use(ElementUI);\n Vue.config.productionTip = false\n new Vue({\n   el: '#app',\n"
+                },
+                {
+                    "date": 1654855631049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import Vue from 'vue'\n import App from './App.vue'\n import router from './router'\n import store from '@/store'\n-import '@bpmn-js/dist/assets/diagram-js.css'\n+import '@/bpmn-js/dist/assets/diagram-js.css'\n import 'bpmn-js/dist/assets/bpmn-font/css/bpmn.css'\n import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css'\n import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'\n import ElementUI from 'element-ui'\n"
                 }
             ],
             "date": 1653974092074,

@@ -18,12 +18,10 @@
     },
     computed: {
       iconName() {
-        console.log("iconClass==",this.iconClass)
         return `#icon-${this.iconClass}`
       },
       svgClass() {
         if (this.className) {
-          console.log("className==",this.className)
           return 'svg-icon- ' + this.className
         } else {
           return 'svg-icon'

@@ -14,7 +14,6 @@ export function convertRouter(asyncRoutes) {
     return asyncRoutes.map((route) => {
         if (route.component) {
             if (route.component === 'Layout') {
-                console.log("11111")
                 route.component = Layout
             } else {
                 // const index = route.component.indexOf('views')
@@ -63,7 +62,6 @@ export function filterRoutes(routes, rolesControl, baseUrl = '/') {
                             : route.children[0].path
                 }
             } else route.childrenNameList = [route.name]
-            console.log("route=====", route)
             return route
         })
 }

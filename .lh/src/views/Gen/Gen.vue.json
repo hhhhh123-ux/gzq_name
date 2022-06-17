@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1653986247632,
@@ -16,6 +16,14 @@
                 {
                     "date": 1653986280193,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,19 +121,19 @@\n         :total=\"data.totalRows\"\r\n         @current-change=\"handleCurrentChange\"\r\n         @size-change=\"handleSizeChange\"\r\n     />\r\n-    <!-- <add ref=\"add\" :all-roles=\"allRoles\" @fetch-data=\"getData\" /> -->\r\n+    <add ref=\"add\" :all-roles=\"allRoles\" @fetch-data=\"getData\" />\r\n   </div>\r\n \r\n </template>\r\n <script>\r\n-// import Add from \"./Components/add\";\r\n+import Add from \"./Components/add\";\r\n import {allList} from \"@/api/system/gen/gen\";\r\n export default {\r\n   components: {\r\n     // eslint-disable-next-line vue/no-unused-components\r\n-      // Add,\r\n+      Add,\r\n   },\r\n   // eslint-disable-next-line vue/multi-word-component-names\r\n   name: \"Gen\",\r\n   data() {\r\n"
+                },
+                {
+                    "date": 1655451329695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -178,9 +178,8 @@\n     getData() {\r\n       const data = JSON.parse(JSON.stringify(this.data));\r\n       this.listLoading = true;\r\n       allList(data).then((response) => {\r\n-        console.log(response);\r\n         if (response.code == '200') {\r\n           this.tableData = response.data.content;\r\n           this.data.totalRows = response.data.totalElements;\r\n           this.listLoading = false;\r\n"
+                },
+                {
+                    "date": 1655451336611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -190,20 +190,17 @@\n     },\r\n     handleSizeChange(val) {\r\n       this.data.pageSize = val;\r\n       this.getData();\r\n-      console.log(`每页 ${val} 条`);\r\n     },\r\n     handleCurrentChange(val) {\r\n       this.data.currentPage = val;\r\n       this.getData();\r\n-      console.log(`当前页: ${val}`);\r\n     },\r\n     setSelectRows(val) {\r\n       this.selectRows = val;\r\n     },\r\n     allAdd(row) {\r\n-      console.log(\"row\",row);\r\n       this.$refs['add'].showEdit(row)\r\n     },\r\n   },\r\n };\r\n"
                 }
             ],
             "date": 1653986247632,

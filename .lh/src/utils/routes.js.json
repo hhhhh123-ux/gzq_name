@@ -3,11 +3,27 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1653968722182,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1655430558956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n                 // const path =\n                 //   index > 0 ? route.component.slice(index) : `views/${route.component}`\n                 // route.component = (resolve) => require([`@/${path}`], resolve)\n                 route.component = loadView(route.component)\n+                c\n             }\n         }\n         if (route.children && route.children.length)\n             route.children = convertRouter(route.children)\n"
+                },
+                {
+                    "date": 1655430566663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n                 // const path =\n                 //   index > 0 ? route.component.slice(index) : `views/${route.component}`\n                 // route.component = (resolve) => require([`@/${path}`], resolve)\n                 route.component = loadView(route.component)\n-                c\n+                console\n             }\n         }\n         if (route.children && route.children.length)\n             route.children = convertRouter(route.children)\n"
+                },
+                {
+                    "date": 1655430572225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n                 // const path =\n                 //   index > 0 ? route.component.slice(index) : `views/${route.component}`\n                 // route.component = (resolve) => require([`@/${path}`], resolve)\n                 route.component = loadView(route.component)\n-                console\n+                console.log(\"\")\n             }\n         }\n         if (route.children && route.children.length)\n             route.children = convertRouter(route.children)\n"
+                },
+                {
+                    "date": 1655430578534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n                 // const path =\n                 //   index > 0 ? route.component.slice(index) : `views/${route.component}`\n                 // route.component = (resolve) => require([`@/${path}`], resolve)\n                 route.component = loadView(route.component)\n-                console.log(\"component\")\n+                console.log(\"component\",)\n             }\n         }\n         if (route.children && route.children.length)\n             route.children = convertRouter(route.children)\n"
                 }
             ],
             "date": 1653968722182,

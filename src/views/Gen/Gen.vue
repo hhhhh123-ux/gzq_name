@@ -179,7 +179,6 @@ export default {
       const data = JSON.parse(JSON.stringify(this.data));
       this.listLoading = true;
       allList(data).then((response) => {
-        console.log(response);
         if (response.code == '200') {
           this.tableData = response.data.content;
           this.data.totalRows = response.data.totalElements;
@@ -192,18 +191,15 @@ export default {
     handleSizeChange(val) {
       this.data.pageSize = val;
       this.getData();
-      console.log(`每页 ${val} 条`);
     },
     handleCurrentChange(val) {
       this.data.currentPage = val;
       this.getData();
-      console.log(`当前页: ${val}`);
     },
     setSelectRows(val) {
       this.selectRows = val;
     },
     allAdd(row) {
-      console.log("row",row);
       this.$refs['add'].showEdit(row)
     },
   },

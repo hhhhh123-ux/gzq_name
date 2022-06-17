@@ -147,8 +147,6 @@ const actions = {
    * @returns
    */
   async getUserInfo({ commit, state, dispatch }) {
-
-    console.log("getUserInfo")
     const {
       data: { username, avatar, roles }
     } = await getUserInfo(state.token);

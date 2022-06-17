@@ -6,3 +6,10 @@ export function getList() {
         method: 'get'
     })
 }
+
+export function treeselect() {
+    return request({
+        url: '/SysMenu/treeselect',
+        method: 'get'
+    })
+}
